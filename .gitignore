@@ -1,9 +1,7 @@
 _site
 .sass-cache
-.jekyll-cache
 .jekyll-metadata
-
-Gemfile.lock
-*.gem
-
+.idea
 .DS_Store
+node_modules
+npm-debug.log

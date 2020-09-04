@@ -1,160 +1,70 @@
-# Theme
-remote_theme: 'epidrome/cover-card'
+# Welcome to Jekyll!
 
-# Title and tag line
-title: 'My name'
-description: 'I am amazing.'
+# Website settings
+title: Jalpc
+description: Jack's blog,use Jekyll and github pages.
+keywords: Jack,Jalpc,blog,Jekyll,github,gh-pages
+baseurl:  /Jalpc # if you have suburl as homepage like '/homepage', please change it to '/homepage' and your repo's name should be 'homepage'
+url: https://jarrekk.github.io/Jalpc  # url should be 'http://<github_username>.github.io/homepage' as before
+# url: http://127.0.0.1:4000
+img_path: /Jalpc/static/assets/img/blog  # url should be '/homepage/static/assets/img/blog' as before
 
-# Images
-avatar: 'avatar.jpg'
-background: 'background.jpg'
-favicon: 'favicon.ico'
+# author -- index page "about me" section
+author:  # change following line to your infomation.
+  name: GitHub  # Be used at blog posts' author.
+  first_name: Hub  # Be used at index page about me section.
+  last_name: Git  # Be used at index page about me section.
+  avatar: /static/assets/img/landing/avatar.jpg  # upload your avatar at directory and edit it.
+  github_username: jarrekk  # Leave blank if you don't have now
+  linkedin_id: jarrekk # Leave blank if you don't have now
+  facebook_username: jiakunnj  # Leave blank if you don't have now
+  twitter_username: jiakun614  # Leave blank if you don't have now
+  email: me@jarrekk.com  # Leave blank if you don't have now
+  cv: http://cv.jarrekk.com  # An online CV can be printed as PDF, leave blank if you don't have now
+  # skill icons are on avatar's left and right side. Reference urls are http://fontawesome.io/ and http://fizzed.com/oss/font-mfizz
+  skill_icon1:
+    - name: icon-apache
+    - name: fa-linux
+  skill_icon2:
+    - name: fa-linux
+    - name: icon-apache
+  desc: Introduce myself will be here.  # Describe yourself.
 
-# Online profiles
-#dribbble: 'mydribbble'
-facebook: 'myfacebook'
-twitter: 'mytwitter'
-#linkedin: 'mylinkedin'
-instagram: 'myinsta'
-#pinterest: 'mypinterest'
-youtube: 'myyoutube'
-github-user: 'mygithub'
-#gitlab-user: ''
-#codepen: ''
-#steam: ''
-#soundcloud: ''
-#lastfm: ''
-#stack-overflow: ''
-#reddit: ''
-#rubygems: ''
-#medium:  ''
-tumblr: 'mytumblr'
-weibo: 'myweibo'
-vk: 'myvk'
-blog_url: 'myblog.blog.com'
-email: 'hello@example.com'
-messenger: 'myfbchat'
+# comment
+disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your configuration; if not, comment following two lines.
+  name: jalpc
 
-social-links-order: [github-user, facebook, twitter, instagram, tumblr, pinterest, linkedin, youtube, vk, weibo, dribbble, messenger, blog_url, email]
+# analytics
+## google analytics
+ga:  # if you wanna this feature, go to https://www.google.com/analytics/ to get your configuration; if not, comment following line.
+  id: UA-93473370-3
 
-# Advanced settings
-plugins:
-  - jekyll-remote-theme
+## google optimize
+go:
+  # id:
 
-# Yaml manifest of supported social links
-# Requirements:
-# `name`
-#     - plain-text name of the site (e.g. twitter)
-#     - **mandatory**
-# `url-pattern`
-#     - site URL pattern containing a placeholder string (e.g. twitter.com/__USERNAME__)
-#     - placeholder will be replaced by username or value specified in _config.yml (e.g. twitter.com/mytwitter)
-#     - **mandatory**
-# `url-scheme`
-#     - the hardcoded URI/URN url-scheme (e.g. https://)
-#     - can be one of: ['https://', 'http://', 'mailto:']
-#     - defaults to '//'
-#     - **optional**
-# `icon-class`
-#     - the font awesome icon class names
-#     - font-awesome free and supports `fas` (solid) and `fab` (brands) styles
-#     - defaults to `fab` style and uses value of `name` attribute (e.g. fab fa-2x fa-twitter)
-#     - **optional**
-social-links:
-  - name: facebook
-    url-pattern: facebook.com/__USERNAME__
-    icon-class: fab fa-2x fa-facebook-f
+## growingIO
+gio:  # if you wanna this feature, go to https://www.growingio.com/ to get your configuration; if not, comment following line.
+  # id:
 
-  - name: twitter
-    url-pattern: twitter.com/__USERNAME__
+## donation
+donation: on  # type 'on'/'off' to choice display donation button at post page or not
 
-  - name: linkedin
-    url-pattern: linkedin.com/in/__USERNAME__
+## carousels
+index_carousel: on  # index page carousel switch
+blog_carousel: on  # blog page carousel switch
 
-  - name: google-plus
-    url-pattern: plus.google.com/+__USERNAME__
+# scss
+sass:
+  style: compressed
 
-  - name: vk
-    url-pattern: vk.com/__USERNAME__
+# Build settings
+encoding: utf-8
 
-  - name: weibo
-    url-pattern: weibo.com/__USERNAME__
+# other settings
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
-  - name: instagram
-    url-pattern: instagram.com/__USERNAME__
-
-  - name: flickr
-    url-pattern: flickr.com/__USERNAME__
-
-  - name: pinterest
-    url-pattern: pinterest.com/__USERNAME__
-
-  - name: github-user
-    url-pattern: github.com/__USERNAME__
-    icon-class: fab fa-2x fa-github
-
-  - name: gitlab-user
-    url-pattern: gitlab.com/__USERNAME__
-    icon-class: fab fa-2x fa-gitlab
-
-  - name: codepen
-    url-pattern: codepen.com/__USERNAME__
-
-  - name: stack-overflow
-    url-pattern: stackoverflow.com/users/__USERNAME__
-
-  - name: reddit
-    url-pattern: reddit.com/user/__USERNAME__
-
-  - name: rubygems
-    url-pattern: rubygems.org/profiles/__USERNAME__
-    icon-class: far fa-2x fa-gem
-
-  - name: steam
-    url-pattern: steamcommunity.com/id/__USERNAME__
-
-  - name: youtube
-    url-pattern: youtube.com/__USERNAME__
-
-  - name: vimeo
-    url-pattern: vimeo.com/__USERNAME__
-
-  - name: soundcloud
-    url-pattern: soundcloud.com/__USERNAME__
-
-  - name: lastfm
-    url-pattern: last.fm/user/__USERNAME__
-
-  - name: medium
-    url-pattern: medium.com/@__USERNAME__
-
-  - name: tumblr
-    url-pattern: __USERNAME__.tumblr.com
-
-  - name: dribbble
-    url-pattern: dribbble.com/__USERNAME__
-
-  - name: keybase
-    url-pattern: keybase.io/__USERNAME__
-
-  - name: messenger
-    url-pattern: m.me/__USERNAME__
-    icon-class: fab fa-2x fa-facebook-messenger
-
-  - name: telegram
-    url-pattern: telegram.me/__USERNAME__
-
-  - name: snapchat
-    url-pattern: snapchat.com/add/__USERNAME__
-
-  - name: quora
-    url-pattern: www.quora.com/profile/__USERNAME__
-
-  - name: blog_url
-    url-pattern: '__USERNAME__'
-    icon-class: fas fa-2x fa-blog
-
-  - name: email
-    url-scheme: 'mailto:'
-    url-pattern: '__USERNAME__'
-    icon-class: far fa-2x fa-envelope-open

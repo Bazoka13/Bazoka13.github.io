@@ -1,79 +1,245 @@
-# Cover Card landing page theme
+# Jalpc. [![Analytics](https://ga-beacon.appspot.com/UA-73784599-1/welcome-page)](https://github.com/jarrekk/Jalpc)
 
-## Quick set-up
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+[![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badge/)
 
-1. [Use this template](https://github.com/epidrome/cover-card/generate)
-2. Edit the `_config.yml` with your online presence accounts and upload a background and an avatar image
-3. Go to `Settings`, scroll down to `Github Pages` and find your new home page link
+<https://jarrekk.github.io/Jalpc/>
 
-## Dependencies
+<http://www.jarrekk.com>  -- Personal website
 
-This theme is based on [jekyll](https://jekyllrb.com/) and [jekyll-remote-theme](https://github.com/benbalter/jekyll-remote-theme). The above dependencies are natively supported by [Github Pages](https://pages.github.com/), which will build and deploy your site as soon as you make any change to your files. The theme is also based on the icons from [Font Awesome](https://fontawesome.com/). 
+![Blog](https://github.com/jarrekk/Jalpc/raw/master/readme_files/Jalpc.png)
 
-## Motivation
+- [3 steps to setup this theme at your website!](#3-steps-to-setup-this-theme-at-your-website)
+- [Features](#features)
+  - [Index page](#index-page)
+    - [`_data/*.yml`](#_datayml)
+  - [Chart Skills](#chart-skills)
+  - [Categories in blog page](#categories-in-blog-page)
+  - [Pagination](#pagination)
+  - [Page views counter](#page-views-counter)
+  - [Multilingual Page](#multilingual-page)
+  - [Web analytics](#web-analytics)
+  - [Comment](#comment)
+  - [Share](#share)
+  - [Search engines](#search-engines)
+  - [Compress CSS and JS files](#compress-css-and-js-files)
+- [Put in a Jalpc Plug](#put-in-a-jalpc-plug)
+- [Upgrading Jalpc](#upgrading-jalpc)
+  - [Ensure there's an upstream remote](#ensure-theres-an-upstream-remote)
+  - [Pull in the latest changes](#pull-in-the-latest-changes)
+- [Todo](#todo)
+- [Donate Jalpc](#donate-jalpc)
+- [Wiki](#wiki)
+- [Ad](#ad)
 
-Create a cover page for your social media profiles, host it for free on Github Pages, and maintain it in minutes, not hours. 
+This is a simple, beautiful and swift theme for Jekyll. It's mobile first, fluidly responsive, and delightfully lightweight.
 
-I understand that a jekyll theme without a blog might sound like a self contradiction, but jekyll has also motivated something even more useful than itself: seamless hosting with Github Pages. 
+If you're completely new to Jekyll, I recommend checking out the documentation at <http://jekyllrb.com> or there's a tutorial by Smashing Magazine.
 
-This theme takes advantage of both jekyll and Github Pages, in order to create something similar to [linktree](https://linktr.ee), [about.me](https://about.me/) and [carrd](https://carrd.co), without the price tag.
+# 3 steps to setup this theme at your website!
 
-In addition to the link at the top, here is one more [demo from my home page](https://github.com/epidrome/home).
+Here is a [document](https://jarrekk.github.io/Jalpc/html/2017/01/31/3-steps-to-setup-website-with-Jalpc.html) of how to setup this theme with 3 steps and a [wiki](https://github.com/jarrekk/Jalpc/wiki/How-to-add-posts) of how to add posts. If you have any **questions** please ask me at [GitHub Issues](https://github.com/jarrekk/Jalpc/issues).
 
-This theme is ideal for people or organizations who are busy enjoying their life or business and who want a simple business card for their online presence.
+# Features
 
-Please keep this README file because it contains the credits at the end and it might become handy after you have completely forgoten the set-up instructions.
+## Index page
 
-## Design rationale
+The index page is seprated into several sections and they are located in `_includes/sections`,the configuration is in `_data/landing.yml` and section's detail configuration is in `_data/*.yml`.
 
-The design rationale of this theme is to do less than other themes: "Less is more"
+### `_data/*.yml`
 
-The majority (99%) of the availabe jekyll themes offers a blog, but I have never been able to keep blog content (or its technology) updated over time.
+These files are used to dynamically render pages, so you almost don't have to edit *html files* to change your own theme, besides you can use `jekyll serve --watch` to reload changes.
 
-Let's be honest with ourselves: How does an (abandoned) blog centered web site look to new visitors if we have not posted since two years ago?
+The following is mapping between *yml files* to *sections*.
 
-## Make it yours
+* landing.yml ==> index.html
+* index/language.yml ==> index.html
+* index/careers.yml  ==>  _includes/sections/career.html
+* index/skills.yml  ==>  _includes/sections/skills.html
+* index/projects.yml  ==>  _includes/sections/projects.html
+* index/links.yml  ==>  _includes/sections/links.html
 
-[Fork this repository](https://github.com/epidrome/cover-card/fork) and edit the files to your liking: As a first step, you may want to replace the images and edit the `_config.yml` with your online profiles. You can test the result almost in real-time at the `Github Pages` section in the Settings tab (gh-pages branch).
+This *yml file* is about blog page navbar
 
-### Avatar or Logo
+* blog.yml ==> _includes/header.html
 
-The avatar image should be square and at least 200 pixels. Chances are that you have a selfie somewhere in your media storage. If you are making a page for a business or product, then use a logo.
+The following is mapping between *yml files* to *donation*
 
-### Background image sets the mood
+* donation/donationlist.yml ==> blog/donate.html
+* donation/alipay.yml  ==>  blog/donate.html
+* donation/wechat_pay.yml ==> blog/donate.yml
 
-There is no aspect ratio requirement for the background image, but it should be big enough for contemporary (desktop, tablet, phone) computer displays and dark enough in order to work for the white foreground text and icons.
+## Chart Skills
 
-### Social profiles
+I use [Chart.js](http://www.chartjs.org/) to show skills, the type of skills' chart is radar, if you want to custom, please read document of Chart.js and edit **_includes/sections/skills.html** and **_data/index/skills.yml**.
 
-Edit the `_config.yml` file with your social media profiles by adding the respective account name, according to the documentation and comments inside that file. You can delete or comment out the social media that you don't need. Since v04, you can also control the order of your social media accounts. Moreover, you can add new media accounts and choose the icon.
+## Categories in blog page
 
-### Domain name
+In blog page, we categorize posts into several categories by url, all category pages use same template html file - `_includes/category.html`.
 
-Github Pages supports free custom domain names, so it is worth buying a domain name and fill it in `Custom domain` field at the settings. If you want to use the theme with you user page (ie. username.github.io), then delete (or rename) your `master branch` and rename your `gh-branch` to `master` [#13](https://github.com/epidrome/cover-card/issues/13)
+For example: URL is `http://127.0.0.1:4000/python/`. In `_data/blog.yml`, we define this category named `Python`, so in `_includes/category.html` we get this URL(/python/) and change it to my category(Python), then this page are posts about **Python**. The following code is about how to get url and display corresponding posts in  `_includes/category.html`.
 
-### Working example
+```html
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <div class="navy-line"></div>
+        {% assign category = page.url | remove:'/' | capitalize %}
+        {% if category == 'Html' %}
+        {% assign category = category | upcase %}
+        {% endif %}
+        <h1>{{ category }}</h1>
+    </div>
+</div>
+<div class="wrapper wrapper-content  animated fadeInRight blog">
+    <div class="row">
+        <ul id="pag-itemContainer" style="list-style:none;">
+            {% assign counter = 0 %}
+            {% for post in site.categories[category] %}
+            {% assign counter = counter | plus: 1 %}
+            <li>
+```
 
-In addition to the configuration file in this repository, you can also [inspect a modified example of the legacy configuration file](https://github.com/epidrome/home/tree/0f333b28688a7a2e5eb84df768c277a03848d228), which is using the *legacy version* of the theme. Moreover, you can inspect a [custom (icons, links) example of the *current version*](https://github.com/epidrome/home).
+## Pagination
 
-### Updates
+The pagination in jekyll is not very perfect,so I use front-end web method,there is a [blog](http://www.jarrekk.com/html/2016/06/04/jekyll-pagination-with-jpages.html) about the method and you can refer to [jPages](http://luis-almeida.github.io/jPages).
 
-Please note that the theme is currently in beta, so some updates at the [master branch](https://github.com/epidrome/cover-card/tree/master) might break your site. Don't panic! 
+## Page views counter
 
-If you wish to keep your theme frozen and not receive updates, then you can [revert your remote_theme to the last known good configuration](https://github.com/benbalter/jekyll-remote-theme):
+Many third party page counter platforms are too slow,so I count my website page view myself,the javascript file is [static/js/count.min.js](https://github.com/jarrekk/jalpc_jekyll_theme/blob/gh-pages/static/js/count.min.js) ([static/js/count.js](https://github.com/jarrekk/jalpc_jekyll_theme/blob/gh-pages/static/js/count.js)),the backend API is written with flask on [Vultr VPS](https://www.vultr.com/), detail code please see [ztool-backhend-mongo](https://github.com/Z-Tool/ztool-backhend-mongo).
 
-> You may also optionally specify a branch, tag, or commit to use by appending an @ and the Git ref (e.g., epidrome/cover-card@v0.3). If you don't specify a Git ref, the master branch will be used.
+## Multilingual Page
 
-Please note that currently Github Pages seems to build your site only when you make a local change. This means that the theme might get updated but you will not receive the updated version unless you make a local change in your forked repository.
+The landing page has multilingual support with the [i18next](http://i18next.com) plugin.
 
-You can always visit [releases](https://github.com/epidrome/cover-card/releases) for new features and check [issues](https://github.com/epidrome/cover-card/issues) for major bugs.
+Languages are configured in the `_data/index/language.yml` file.
 
-### Expert options
+> Not everyone needs this feature, so I make it very easy to remove it, just clear content in file `_data/language.yml` and folder `static/locales/`.
 
-You can find and locally overide advanced options (e.g., font, image, and icon styles) for this theme in the documentation (readme) at the [master branch](https://github.com/epidrome/cover-card/tree/master).
+About how to custom multilingual page, please see [wiki](https://github.com/jarrekk/Jalpc/wiki/Multilingual-Page).
 
-## Credits
+## Web analytics
 
-This page is based on the [cover-card jekyll remote theme](https://github.com/epidrome/cover-card/tree/master).
+I use [Google analytics](https://www.google.com/analytics/) and [GrowingIO](https://www.growingio.com/) to do web analytics, you can choose either to realize it,just register a account and replace id in `_config.yml`.
 
-Background photo by Anders Jildén and avatar photo by Ayo Ogunseinde, both on [Unsplash](https://unsplash.com/)
+## Comment
+
+I use [Disqus](https://disqus.com/) to realize comment. You should set disqus_shortname and get public key and then, in `_config.yml`, edit the disqus value to enable Disqus.
+
+## Share
+
+I use [AddToAny](https://www.addtoany.com/) to share my blog on other social network platform. You can go to this website to custom your share buttons and paste code at `_includes/share.html`.
+
+![share](https://github.com/jarrekk/Jalpc/raw/master/readme_files/share.png)
+
+## Search engines
+
+I use javascript to realize blog search,you can double click `Ctrl` or click the icon at lower right corner of the page,the detail you can got to this [repository](https://github.com/androiddevelop/jekyll-search). Just use it.
+
+![search](https://github.com/jarrekk/Jalpc/raw/master/readme_files/search.gif)
+
+## Compress CSS and JS files
+
+All CSS and JS files are compressed at `/static/assets`.
+
+I use [UglifyJS2](https://github.com/mishoo/UglifyJS2), [clean-css](https://github.com/jakubpawlowicz/clean-css) to compress CSS and JS files, customised CSS files are at `_sass` folder which is feature of [Jekyll](https://jekyllrb.com/docs/assets/). If you want to custom CSS and JS files, you need to do the following:
+
+1. Install [NPM](https://github.com/npm/npm) then install **UglifyJS2** and **clean-css**: `npm install -g uglifyjs; npm install -g clean-css`, then run `npm install` at root dir of project.
+2. Compress script is **build.js**
+3. If you want to add or remove CSS/JS files, just edit **build/build.js** and **build/files.conf.js**, then run `npm run build` at root dir of project, link/src files will use new files.
+
+OR
+
+Edit CSS files at `_sass` folder.
+
+# Put in a Jalpc Plug
+
+If you want to give credit to the Jalpc theme with a link to my personal website <http://www.jarrekk.com>, that'd be awesome. No worries if you don't.
+
+# Upgrading Jalpc
+
+Jalpc is always being improved by its users, so sometimes one may need to upgrade.
+
+## Ensure there's an upstream remote
+
+If `git remote -v` doesn't have an upstream listed, you can do the following to add it:
+
+```
+git remote add upstream https://github.com/jarrekk/Jalpc.git
+```
+
+## Pull in the latest changes
+
+```
+git pull upstream gh-pages
+```
+
+There may be merge conflicts, so be sure to fix the files that git lists if they occur. That's it!
+
+# Testing Locally
+To test your site locally, you’ll need
+
+- [ruby](https://www.ruby-lang.org/en/)
+- the [github-pages](https://github.com/github/pages-gem) gem
+
+## Installing ruby
+There are [lots of different ways to install ruby](https://www.ruby-lang.org/en/documentation/installation/).
+
+In Mac OS X, older versions of ruby will already be installed. But I use the [Ruby Version Manager (RVM)](https://rvm.io/) to have a more recent version. You could also use [Homebrew](https://brew.sh/).
+
+In Windows, use [RubyInstaller](https://rubyinstaller.org/). (In most of this tutorial, I’ve assumed you’re using a Mac or some flavor of Unix. It’s possible that none of this was usable for Windows folks. Sorry!)
+
+## Installing the github-pages gem
+Run the following command:
+
+```
+gem install github-pages
+```
+
+This will install the github-pages gem and all dependencies (including [jekyll](https://jekyllrb.com/)).
+
+## Later, to update the gem, type:
+
+```
+gem update github-pages
+```
+
+Testing your site locally
+To construct and test your site locally, go into the directory and type
+
+```
+jekyll build
+```
+
+This will create (or modify) a `_site/ directory`, containing everything from `assets/`, and then the `index.md` and all `pages/*.md` files, converted to html. (So there’ll be `_site/index.html` and the various `_site/pages/*.html.`)
+
+Type the following in order to “serve” the site. This will first run build, and so it does not need to be preceded by `jekyll build`.
+
+```
+jekyll serve
+```
+
+Now open your browser and go to `http://localhost:4000/site-name/`
+
+# Todo
+- [ ] `jekyll server --watch` mode need to use original CSS/JS files
+- [ ] User can customise index page's section title.
+- [x] Non-github projects also have links.
+- [ ] Add some custom color themes for selection(Nav bar, background, words, dominant hue).
+
+# Donate Jalpc
+If this project let you enjoy your blog time, you can give me a cup of coffee :)
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/jarrekk)
+
+# Wiki
+
+* [Multilingual Page](https://github.com/jarrekk/Jalpc/wiki/Multilingual-Page)
+* [How to add posts](https://github.com/jarrekk/Jalpc/wiki/How-to-add-posts)
+* [Change Log](https://github.com/jarrekk/Jalpc/wiki/Change-Log)
+* [Contributors](https://github.com/jarrekk/Jalpc/wiki/Contributors)
+* [Thanks to the following](https://github.com/jarrekk/Jalpc/wiki/Thanks-to-the-following)
+
+# Ad
+[Jalpc-A](https://github.com/Jack614/Jalpc-A): another Jekyll theme written by [AngularJS](https://angularjs.org/).
+
