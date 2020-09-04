@@ -1,60 +1,70 @@
----
-layout: default
----
+<!-- 博文的布局-Layout -->
+<!DOCTYPE html>
+<html>
+<head>
+<!-- 引入head标签 -->
+{% include head.html %}
+{% include androidColor.html %}
+</head>
+<body>
 
-<div class="wrapper wrapper-content  animated fadeInRight article">
-    <div class="row">
-        <div class="col-lg-10 col-lg-offset-1">
-            <div class="ibox">
-                <div class="ibox-content">
-                    <div class="pull-right">
-                    	{% for category in page.categories %}
-                        	<a class="btn btn-white btn-xs" href="{{ category | downcase | prepend: '/' | prepend: site.baseurl }}">{{ category }}</a>
-                        {% endfor %}
-                    </div>
-                    <div class="text-center article-title">
-                    <span class="text-muted"><i class="fa fa-clock-o"></i> {{ page.date | date: "%-d %b %Y" }}</span>
-                        <h1>
-                            {{ page.title }}
-                        </h1>
-                    </div>
-                    	{{ content }}
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-6">
-                                <h5 style="display: inline;">Tags:</h5>
-                                {% for tag in page.tags %}
-                                    <button class="btn btn-white btn-xs" type="button">{{ tag }}</button>
-                                {% endfor %}
-                        </div>
-                        <div class="col-md-6">
-                            <div class="small text-right">
-                                <div>
-                                {% if site.disqus %}
-                                <i class="fa fa-comments-o"> </i> <span class="disqus-comment-count" data-disqus-url="{{ site.url }}{{ page.url }}">0</span> comments
-                                {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <!-- donate -->
-                            {% if site.donation %}
-                            {% include donate.html %}
-                            {% endif %}
-                            <br>
-                            <!-- share -->
-                            {% include share.html %}
-                            <br>
-                            <!-- comment -->
-                            {% include comments.html %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- 顶部锚点 -->
+<a id="htmlup" name="htmlup"></a>
+<!-- 引入博文顶部选项 -->
+{% include post-header.html %}
+<!-- 引入移动下拉选项 -->
+{% include boot.html %}
+<!-- 引入博文顶部样式 -->
+{% include post-title.html %}
+<div class="markdown-body fadeInUp animated">
 
+  {% if page.subtitle %}
+    {% if page.color.size==0 or page.color==nil %}
+      <div class="postpage-subtitle" style="border-left: 8px solid #9A85FF; border-right: 8px solid #9A85FF;">
+        {{ page.subtitle }}
+      </div>
+    {% else %}
+      <div class="postpage-subtitle" style="border-left: 8px solid {{ page.color }}; border-right: 8px solid {{ page.color }}">
+        {{ page.subtitle }}
+      </div>
+    {% endif %}
+  {% endif %}
+
+  <!-- 文章内容 -->
+  {{ page.content }}
+  <!-- 引入share模块 -->
+  {% include share.html %}
 </div>
+
+<!-- 底部锚点 -->
+<a id="htmldown" name="htmldown"></a>
+<!-- 引入评论模块 -->
+{% include comment.html %}
+<!-- 引入goto模块 -->
+{% include goto.html %}
+<!-- 引入页面底部模块 -->
+{% include footer.html %}
+
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 600,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

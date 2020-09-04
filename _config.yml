@@ -1,70 +1,90 @@
-# Welcome to Jekyll!
+# Site settings 配置站点
+title: 'your awesome title'
+description: 'your web description'
+keywords: 'your web keywords, another keywords'
+url: 'https://abc.github.io' # your host
 
-# Website settings
-title: Jalpc
-description: Jack's blog,use Jekyll and github pages.
-keywords: Jack,Jalpc,blog,Jekyll,github,gh-pages
-baseurl:  /Jalpc # if you have suburl as homepage like '/homepage', please change it to '/homepage' and your repo's name should be 'homepage'
-url: https://jarrekk.github.io/Jalpc  # url should be 'http://<github_username>.github.io/homepage' as before
-# url: http://127.0.0.1:4000
-img_path: /Jalpc/static/assets/img/blog  # url should be '/homepage/static/assets/img/blog' as before
+# nav 中文字符空格：&emsp;
+nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
+  首页: '/'
+  标签: '/tags.html'
+  时间线: '/timeline.html'
+  关于博主: '/about.html'
+  友情链接: '/friendLink.html'
 
-# author -- index page "about me" section
-author:  # change following line to your infomation.
-  name: GitHub  # Be used at blog posts' author.
-  first_name: Hub  # Be used at index page about me section.
-  last_name: Git  # Be used at index page about me section.
-  avatar: /static/assets/img/landing/avatar.jpg  # upload your avatar at directory and edit it.
-  github_username: jarrekk  # Leave blank if you don't have now
-  linkedin_id: jarrekk # Leave blank if you don't have now
-  facebook_username: jiakunnj  # Leave blank if you don't have now
-  twitter_username: jiakun614  # Leave blank if you don't have now
-  email: me@jarrekk.com  # Leave blank if you don't have now
-  cv: http://cv.jarrekk.com  # An online CV can be printed as PDF, leave blank if you don't have now
-  # skill icons are on avatar's left and right side. Reference urls are http://fontawesome.io/ and http://fizzed.com/oss/font-mfizz
-  skill_icon1:
-    - name: icon-apache
-    - name: fa-linux
-  skill_icon2:
-    - name: fa-linux
-    - name: icon-apache
-  desc: Introduce myself will be here.  # Describe yourself.
+# 博主
+author: true
+name: 'your awesome name'
+NickName: 'your awesome nickname'
+webtitle: 'your awesome webtitle'
+bio: 'your awesome bio'
+about: true
+aboutyou: 'your introduction'
+portraits: '/assets/profile.jpeg' # your portraits image file path
 
-# comment
-disqus:  # if you wanna comment feature, go to https://disqus.com/ to get your configuration; if not, comment following two lines.
-  name: jalpc
+# SNS
+SNS: true
+SNS-icon: #['Facebook', 'weibo', 'qq', 'github', 'Dribbble', 'Twitter', 'instagram', 'weixin', 'Codepen']
+  mail: 'mailto:abc@gmail.com'
+  weixin: '' # 你的微信二维码存放的地址
+  qq: '' # 你的qq二维码存放的地址 or http://wpa.qq.com/msgrd?v=3&uin='你的QQ号'&site=qq&menu=yes
+  github: ''
+  Codepen: ''
+  weibo: ''
+  instagram: ''
+  Twitter: ''
+  Dribbble: ''
+  Facebook: ''
+  Google: ''
+  zhihu: ''
+  juejin: ''
+  twitch: ''
 
-# analytics
-## google analytics
-ga:  # if you wanna this feature, go to https://www.google.com/analytics/ to get your configuration; if not, comment following line.
-  id: UA-93473370-3
+# 分页
+paginate: 2
+paginatepath: ['page:num']
 
-## google optimize
-go:
-  # id:
+# since
+footer:
+  since: 2018
 
-## growingIO
-gio:  # if you wanna this feature, go to https://www.growingio.com/ to get your configuration; if not, comment following line.
-  # id:
-
-## donation
-donation: on  # type 'on'/'off' to choice display donation button at post page or not
-
-## carousels
-index_carousel: on  # index page carousel switch
-blog_carousel: on  # blog page carousel switch
-
-# scss
-sass:
-  style: compressed
-
-# Build settings
-encoding: utf-8
-
-# other settings
-highlighter: rouge
+# Markdown
 markdown: kramdown
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
+# 代码高亮 使用rouge
+highlighter: rouge
+# 代码高亮主题使用pygments主题: autumn\ default\ emacs\ friendly\ manni\ murphy\ pastie\ perldoc\ tango 任选一个你喜欢的主题名称填在下面的单引号中
+pygmentsTheme: 'default'
 
+# 友情链接
+friends:
+  jekyll: 'https://www.jekyll.com.cn/'
+
+# 评论 最佳体验 在disqus、livere和Gitment之间三选一
+# disqus 评论
+disqus: false
+disqus_url: '' # https://abc.disqus.com/embed.js
+# 来必力评论
+livere: true
+livere_uid: 'MTAyMC8zNDI2OS8xMDgwNg==' # MTAyMC8zNDI2OS8xMDgwNg==
+# Gitment评论 OAuth Application
+Gitment: false
+Gitment_owner: ''  # github用户名
+Gitment_repo: ''  # github博客存放的仓库名
+client_id: ''  # 注册 OAuth Application 后获得的 client_id
+client_secret: ''  # 注册 OAuth Application 后获得的 client_secret
+
+# Share : weibo, qq, wechat, tencent, douban, qzone, linkedin, diandian, facebook, twitter, google
+social-share: true
+social-share-items: ['qq', 'wechat', 'weibo', 'twitter', 'facebook']
+
+# 百度统计 在baidu-url里填写自己相关的url代码
+baidu: true
+baidu-url: ''
+# 谷歌分析 在google-ID里填写自己在谷歌分析获得的追踪ID
+google: false
+google-ID: ''
+
+# 博客头信息备选颜色（该部分在站点中不充当站点变量，将其写在post的头信息中用来充当页面变量）
+color: rgb(154,133,255) rgb(255,90,90) rgb(255,210,32) rgb(98,170,255)

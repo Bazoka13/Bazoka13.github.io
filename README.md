@@ -1,245 +1,383 @@
-# Jalpc. [![Analytics](https://ga-beacon.appspot.com/UA-73784599-1/welcome-page)](https://github.com/jarrekk/Jalpc)
+## HardCandy-Jekyll
 
-[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
-[![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
-[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badge/)
 
-<https://jarrekk.github.io/Jalpc/>
 
-<http://www.jarrekk.com>  -- Personal website
+### Preview
 
-![Blog](https://github.com/jarrekk/Jalpc/raw/master/readme_files/Jalpc.png)
+[在线预览 view demo →](http://xseven.me/)
 
-- [3 steps to setup this theme at your website!](#3-steps-to-setup-this-theme-at-your-website)
-- [Features](#features)
-  - [Index page](#index-page)
-    - [`_data/*.yml`](#_datayml)
-  - [Chart Skills](#chart-skills)
-  - [Categories in blog page](#categories-in-blog-page)
-  - [Pagination](#pagination)
-  - [Page views counter](#page-views-counter)
-  - [Multilingual Page](#multilingual-page)
-  - [Web analytics](#web-analytics)
-  - [Comment](#comment)
-  - [Share](#share)
-  - [Search engines](#search-engines)
-  - [Compress CSS and JS files](#compress-css-and-js-files)
-- [Put in a Jalpc Plug](#put-in-a-jalpc-plug)
-- [Upgrading Jalpc](#upgrading-jalpc)
-  - [Ensure there's an upstream remote](#ensure-theres-an-upstream-remote)
-  - [Pull in the latest changes](#pull-in-the-latest-changes)
-- [Todo](#todo)
-- [Donate Jalpc](#donate-jalpc)
-- [Wiki](#wiki)
-- [Ad](#ad)
+![1](/screenshot/1.png)
 
-This is a simple, beautiful and swift theme for Jekyll. It's mobile first, fluidly responsive, and delightfully lightweight.
+![2](/screenshot/2.png)
 
-If you're completely new to Jekyll, I recommend checking out the documentation at <http://jekyllrb.com> or there's a tutorial by Smashing Magazine.
+![3](/screenshot/3.png)
 
-# 3 steps to setup this theme at your website!
+想要查看手机端显示效果，扫描下方二维码浏览器打开即可
 
-Here is a [document](https://jarrekk.github.io/Jalpc/html/2017/01/31/3-steps-to-setup-website-with-Jalpc.html) of how to setup this theme with 3 steps and a [wiki](https://github.com/jarrekk/Jalpc/wiki/How-to-add-posts) of how to add posts. If you have any **questions** please ask me at [GitHub Issues](https://github.com/jarrekk/Jalpc/issues).
+![4](/screenshot/4.png)
 
-# Features
 
-## Index page
 
-The index page is seprated into several sections and they are located in `_includes/sections`,the configuration is in `_data/landing.yml` and section's detail configuration is in `_data/*.yml`.
+### 主题特性
 
-### `_data/*.yml`
+- 主题基于 `jekyll 3.8.1` 开发
+- 响应式布局
+- 文章标签索引
+- 文章时间线索引
+- 博主个人信息展示
+- 支持9种代码高亮主题色
+- 支持 `dispus` 、 `来必力` 、 `Gitment` 三种评论系统
+- 支持 `百度统计` 、`谷歌分析` 两种网站追踪系统
+- 支持13款不同社交平台图标及链接地址指向
+- 支持11个不同平台的文章分享路口
 
-These files are used to dynamically render pages, so you almost don't have to edit *html files* to change your own theme, besides you can use `jekyll serve --watch` to reload changes.
 
-The following is mapping between *yml files* to *sections*.
 
-* landing.yml ==> index.html
-* index/language.yml ==> index.html
-* index/careers.yml  ==>  _includes/sections/career.html
-* index/skills.yml  ==>  _includes/sections/skills.html
-* index/projects.yml  ==>  _includes/sections/projects.html
-* index/links.yml  ==>  _includes/sections/links.html
+### 开始使用
 
-This *yml file* is about blog page navbar
+#### 线上部署
 
-* blog.yml ==> _includes/header.html
+​	首先在 `github` 上开启一个仓库起名为 `你的github用户名.github.io` 。并 `clone` 你的仓库到本地。 然后下载 `HardCandy-Jekyll` 的 [源码](https://github.com/xukimseven/HardCandy-Jekyll) 到本地之后，将 `_config.yml` 文件更改为自己的配置（下面会介绍）。之后，将所有文件拷贝至自己的本地仓库根目录下，再上传至自己的 `github` 线上仓库，即可通过域名 `https://你的github用户名.github.io` 访问看到自己的博客页面。
 
-The following is mapping between *yml files* to *donation*
+#### 本地部署
 
-* donation/donationlist.yml ==> blog/donate.html
-* donation/alipay.yml  ==>  blog/donate.html
-* donation/wechat_pay.yml ==> blog/donate.yml
+​	首先在本地安装 `Jekyll` [详情请戳](https://www.jekyll.com.cn/docs/quickstart/)
 
-## Chart Skills
+​	安装完成之后，使用命令 `jekyll -v` 查看 **jekyll版本号** ，若低于 `jekyll 3.x.x` 则需要升级至 `jekyll 3.x.x` 。 
 
-I use [Chart.js](http://www.chartjs.org/) to show skills, the type of skills' chart is radar, if you want to custom, please read document of Chart.js and edit **_includes/sections/skills.html** and **_data/index/skills.yml**.
+​	使用 `gem install jekyll-paginate` 或 `sudo gem install jekyll-paginate` 安装Jekyll的分页插件。
 
-## Categories in blog page
+​	将源码 `clone` 到本地后，在终端进入 `HardCandy-Jekyll` 根目录，运行 `jekyll server` 或 `bundle exec jekyll serve` ，即可开启jekyll的服务。通过浏览器访问 [http://localhost:4000](http://localhost:4000) ，即可看到本地部署的 `HardCandy-Jekyll` 博客了。
 
-In blog page, we categorize posts into several categories by url, all category pages use same template html file - `_includes/category.html`.
+> warning！值得注意的地方：
+>
+> ​	由于本主题是基于 `jekyll 3.8.1` 开发 ，jekyll的版本差异也许会导致相关显示效果的差异。详情请参考官方文档：[news](https://jekyllrb.com/news/)
 
-For example: URL is `http://127.0.0.1:4000/python/`. In `_data/blog.yml`, we define this category named `Python`, so in `_includes/category.html` we get this URL(/python/) and change it to my category(Python), then this page are posts about **Python**. The following code is about how to get url and display corresponding posts in  `_includes/category.html`.
 
-```html
-<div class="row">
-    <div class="col-lg-12 text-center">
-        <div class="navy-line"></div>
-        {% assign category = page.url | remove:'/' | capitalize %}
-        {% if category == 'Html' %}
-        {% assign category = category | upcase %}
-        {% endif %}
-        <h1>{{ category }}</h1>
-    </div>
-</div>
-<div class="wrapper wrapper-content  animated fadeInRight blog">
-    <div class="row">
-        <ul id="pag-itemContainer" style="list-style:none;">
-            {% assign counter = 0 %}
-            {% for post in site.categories[category] %}
-            {% assign counter = counter | plus: 1 %}
-            <li>
+
+### 配置文档
+
+- 开始
+  - [关于博客](#关于博客)
+  - [写文章](#写文章)
+- 组件
+  - [博主个人信息](#博主个人信息)
+  - [社交媒体](#社交媒体)
+  - [首页显示信息](#首页显示信息)
+  - [导航栏](#导航栏)
+  - [分页](#分页)
+  - [代码高亮主题](#代码高亮主题)
+  - [友情链接](#友情链接)
+  - [页脚](#页脚)
+- 第三方服务
+  - [评论系统的切换](#评论系统的切换)
+  - [文章分享的路口](#文章分享的路口)
+  - [网站流量追综的配置](#网站流量追综的配置)
+
+
+
+> ​	通用修改 `_config.yml` 文件，你便可以轻松搭建属于你自己的个人博客。
+>
+> ​	一部分配置，默认已经是配置好的，你只需要修改下面列出的内容即可完成搭建。
+
+
+
+#### 关于博客
+
+```yaml
+---
+# Site settings 配置站点
+title: 'your awesome title'
+description: 'your web description'
+keywords: 'your web keywords, another keywords'
+url: 'https://abc.github.io' # your host
+---
 ```
 
-## Pagination
+`title` ：用于页面的 title 标签的显示内容
 
-The pagination in jekyll is not very perfect,so I use front-end web method,there is a [blog](http://www.jarrekk.com/html/2016/06/04/jekyll-pagination-with-jpages.html) about the method and you can refer to [jPages](http://luis-almeida.github.io/jPages).
+`description` ：网站的简介
 
-## Page views counter
+`keywords` ：网站的关键词
 
-Many third party page counter platforms are too slow,so I count my website page view myself,the javascript file is [static/js/count.min.js](https://github.com/jarrekk/jalpc_jekyll_theme/blob/gh-pages/static/js/count.min.js) ([static/js/count.js](https://github.com/jarrekk/jalpc_jekyll_theme/blob/gh-pages/static/js/count.js)),the backend API is written with flask on [Vultr VPS](https://www.vultr.com/), detail code please see [ztool-backhend-mongo](https://github.com/Z-Tool/ztool-backhend-mongo).
+`url` ：网站域名
 
-## Multilingual Page
 
-The landing page has multilingual support with the [i18next](http://i18next.com) plugin.
 
-Languages are configured in the `_data/index/language.yml` file.
+#### 写文章
 
-> Not everyone needs this feature, so I make it very easy to remove it, just clear content in file `_data/language.yml` and folder `static/locales/`.
+​	博客通过解析 `markdown` 文件来部署文章页面的，所以用户写文章只需要写一篇markdown，并放置在站点根目录下的 `_post` 文件夹即可。具体的markdown语法自行上网搜索学习，或使用markdown编辑器进行写作。推荐一款 markdown编辑器：[typora](https://www.typora.io) 。支持 windows 、mac OSX 、Linux 。
 
-About how to custom multilingual page, please see [wiki](https://github.com/jarrekk/Jalpc/wiki/Multilingual-Page).
+关于文章 YAML头信息：
 
-## Web analytics
-
-I use [Google analytics](https://www.google.com/analytics/) and [GrowingIO](https://www.growingio.com/) to do web analytics, you can choose either to realize it,just register a account and replace id in `_config.yml`.
-
-## Comment
-
-I use [Disqus](https://disqus.com/) to realize comment. You should set disqus_shortname and get public key and then, in `_config.yml`, edit the disqus value to enable Disqus.
-
-## Share
-
-I use [AddToAny](https://www.addtoany.com/) to share my blog on other social network platform. You can go to this website to custom your share buttons and paste code at `_includes/share.html`.
-
-![share](https://github.com/jarrekk/Jalpc/raw/master/readme_files/share.png)
-
-## Search engines
-
-I use javascript to realize blog search,you can double click `Ctrl` or click the icon at lower right corner of the page,the detail you can got to this [repository](https://github.com/androiddevelop/jekyll-search). Just use it.
-
-![search](https://github.com/jarrekk/Jalpc/raw/master/readme_files/search.gif)
-
-## Compress CSS and JS files
-
-All CSS and JS files are compressed at `/static/assets`.
-
-I use [UglifyJS2](https://github.com/mishoo/UglifyJS2), [clean-css](https://github.com/jakubpawlowicz/clean-css) to compress CSS and JS files, customised CSS files are at `_sass` folder which is feature of [Jekyll](https://jekyllrb.com/docs/assets/). If you want to custom CSS and JS files, you need to do the following:
-
-1. Install [NPM](https://github.com/npm/npm) then install **UglifyJS2** and **clean-css**: `npm install -g uglifyjs; npm install -g clean-css`, then run `npm install` at root dir of project.
-2. Compress script is **build.js**
-3. If you want to add or remove CSS/JS files, just edit **build/build.js** and **build/files.conf.js**, then run `npm run build` at root dir of project, link/src files will use new files.
-
-OR
-
-Edit CSS files at `_sass` folder.
-
-# Put in a Jalpc Plug
-
-If you want to give credit to the Jalpc theme with a link to my personal website <http://www.jarrekk.com>, that'd be awesome. No worries if you don't.
-
-# Upgrading Jalpc
-
-Jalpc is always being improved by its users, so sometimes one may need to upgrade.
-
-## Ensure there's an upstream remote
-
-If `git remote -v` doesn't have an upstream listed, you can do the following to add it:
-
-```
-git remote add upstream https://github.com/jarrekk/Jalpc.git
+```yaml
+layout: post
+title:  "post title"
+subtitle: 'post subtitle'
+date:   2018-05-29 08:44:13
+tags: html js css
+description: ''
+color: 'rgb(154,133,255)'
+cover: ''
 ```
 
-## Pull in the latest changes
+关于color：
 
-```
-git pull upstream gh-pages
-```
+​	此处的color用于post页面的顶部位置的背景色。如上面展示图所示为 `rgb(154,133,255)` 色。
 
-There may be merge conflicts, so be sure to fix the files that git lists if they occur. That's it!
+​	对于color的书写，如果颜色代码为 `rgb` 或 `rgba` 又或是 `英文单词` 的话，可以不用引号包裹，但如果颜色代码为 `#123456` 这种16进制码的话，就必须使用引号包裹。所以，在使用中，推荐一致都使用引号，以免错误使用。
 
-# Testing Locally
-To test your site locally, you’ll need
+​	当然，如果你在书写文章时，忘记写color的值的话，主题默认会为你填写 `rgb(154,133,255)` 色。就是上图显示的颜色。虽然不影响页面的显示，但如果想要更多彩的页面效果的话，建议在每一篇的头信息里写上 color 值。
 
-- [ruby](https://www.ruby-lang.org/en/)
-- the [github-pages](https://github.com/github/pages-gem) gem
+关于cover：
 
-## Installing ruby
-There are [lots of different ways to install ruby](https://www.ruby-lang.org/en/documentation/installation/).
+​	此处需填写某一张图片的 `url` ，`url` 值可以是线上的某张图片，也可以是博客目录下的图片。关键是要书写正确。这张图片用于在首页下博客列表里显示，如下图。
 
-In Mac OS X, older versions of ruby will already be installed. But I use the [Ruby Version Manager (RVM)](https://rvm.io/) to have a more recent version. You could also use [Homebrew](https://brew.sh/).
+![5](/screenshot/5.png)
 
-In Windows, use [RubyInstaller](https://rubyinstaller.org/). (In most of this tutorial, I’ve assumed you’re using a Mac or some flavor of Unix. It’s possible that none of this was usable for Windows folks. Sorry!)
 
-## Installing the github-pages gem
-Run the following command:
 
-```
-gem install github-pages
-```
+#### 博主个人信息
 
-This will install the github-pages gem and all dependencies (including [jekyll](https://jekyllrb.com/)).
-
-## Later, to update the gem, type:
-
-```
-gem update github-pages
+```yaml
+# 博主
+author: true
+name: 'your awesome name'
+NickName: 'your awesome nickname'
+webtitle: 'your awesome webtitle'
+bio: 'your awesome bio'
+about: true
+aboutyou: 'your introduction'
+portraits: '/assets/profile.jpeg' # your portraits image file path
 ```
 
-Testing your site locally
-To construct and test your site locally, go into the directory and type
+​	该部分显示在 `关于博主` 页面，与 `社交媒体` 一同在下图显示。
 
+![6](/screenshot/6.png)
+
+关于author：
+
+​	使用 `true` 或者 `false` 来打开或关闭博主信息卡片，默认 true ，最佳体验也是 true 。
+
+关于about：
+
+​	使用 `true` 或者 `false` 来打开或关闭博主关于信息，即是否显示 aboutyou 部分的信息。默认 true ，该部分需要在 aboutyou 中输入相关信息，支持在此填写html代码。
+
+
+
+#### 社交媒体
+
+```yaml
+# SNS
+SNS: true
+SNS-icon: #['Facebook', 'weibo', 'qq', 'github', 'Dribbble', 'Twitter', 'instagram', 'weixin', 'Codepen']
+  mail: 'mailto:abc@gmail.com'
+  weixin: '' # 你的微信二维码存放的地址
+  qq: '' # 你的qq二维码存放的地址 or http://wpa.qq.com/msgrd?v=3&uin='你的QQ号'&site=qq&menu=yes
+  github: ''
+  Codepen: ''
+  weibo: ''
+  instagram: ''
+  Twitter: ''
+  Dribbble: ''
+  Facebook: ''
+  Google: ''
+  zhihu: ''
+  juejin: ''
+  twitch: ''
 ```
-jekyll build
+
+​	~~主题一共配置了 13种 社交媒体的图标，只要在需要开启的社交账号的名字后填写你的个人主页链接即可，不需要开启的就在那一行的头部用 `#` 注释这一行即可。同样的，如果需要更换每个图标的排列位置，只需要改变他们的每一行排列的顺序即可。~~
+
+​	在 `SNS` 后填写  `true` 或者 `false` 来打开或者关闭这一部分。
+
+2018/09/28 更新：
+
+![7](/screenshot/sns-icon.png)
+
+- 更新社交图标为 线上地址 ，便于管理与修改。
+- 添加 **Codepen** 图标
+- 修改原来的圆形图标为不规则图标
+
+
+
+#### 首页显示信息
+
+```yaml
+---
+layout: default
+title: your awesome title
+page-title: awesome page-title.
+home-title: awesome home-title.
+description: description
+---
 ```
 
-This will create (or modify) a `_site/ directory`, containing everything from `assets/`, and then the `index.md` and all `pages/*.md` files, converted to html. (So there’ll be `_site/index.html` and the various `_site/pages/*.html.`)
+​	该部分位于 `index.html` 页面，修改 `title` 、`page-title` 、`home-title`  、`description`为个人想要的信息，默认配置的显示效果如下图。
 
-Type the following in order to “serve” the site. This will first run build, and so it does not need to be preceded by `jekyll build`.
+![7](/screenshot/7.png)
 
+
+
+#### 导航栏
+
+```yaml
+# nav 中文字符空格：&emsp;
+nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
+  首页: '/'
+  标签: '/tags.html'
+  时间线: '/timeline.html'
+  关于博主: '/about.html'
+  友情链接: '/friendLink.html'
 ```
-jekyll serve
+
+​	默认全部开启他们，当然如果想要自己添加，按照格式填在下方即可，当然页面显示顺序与每一行的位置有关。
+
+
+
+#### 分页
+
+```yaml
+# 分页
+paginate: 2
+paginatepath: ['page:num']
 ```
 
-Now open your browser and go to `http://localhost:4000/site-name/`
+​	随个人爱好在，在上面填写你需要的在首页一页最多显示多少篇博客的数字。
 
-# Todo
-- [ ] `jekyll server --watch` mode need to use original CSS/JS files
-- [ ] User can customise index page's section title.
-- [x] Non-github projects also have links.
-- [ ] Add some custom color themes for selection(Nav bar, background, words, dominant hue).
+​	本地部署的需要使用 `gem install jekyll-paginate` 或 `sudo gem install jekyll-paginate` 安装Jekyll的分页插件。
 
-# Donate Jalpc
-If this project let you enjoy your blog time, you can give me a cup of coffee :)
 
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/jarrekk)
 
-# Wiki
+#### 代码高亮主题
 
-* [Multilingual Page](https://github.com/jarrekk/Jalpc/wiki/Multilingual-Page)
-* [How to add posts](https://github.com/jarrekk/Jalpc/wiki/How-to-add-posts)
-* [Change Log](https://github.com/jarrekk/Jalpc/wiki/Change-Log)
-* [Contributors](https://github.com/jarrekk/Jalpc/wiki/Contributors)
-* [Thanks to the following](https://github.com/jarrekk/Jalpc/wiki/Thanks-to-the-following)
+```yaml
+# 代码高亮 使用rouge
+highlighter: rouge
+# 代码高亮主题使用pygments主题: autumn\ default\ emacs\ friendly\ manni\ murphy\ pastie\ perldoc\ tango 任选一个你喜欢的主题名称填在下面的单引号中
+pygmentsTheme: 'default'
+```
 
-# Ad
-[Jalpc-A](https://github.com/Jack614/Jalpc-A): another Jekyll theme written by [AngularJS](https://angularjs.org/).
+​	代码高亮使用 jekyll3.0 之后的默认高亮引擎 `rouge` 。关于主题，只需要在 `pygmentsTheme` 后填写喜欢的主题名称即可。共有9款主题可选，主题名见上文。
 
+​	代码高亮的写法：
+
+~~~markdown
+``` css
+*{
+ margin:0;
+ padding:0;
+}
+```
+~~~
+
+2018/09/28 更新：
+
+![7](/screenshot/博客代码高亮例子.png)
+
+上图为 **代码高亮试例图** ，仅以 html 作为参考例子，其他代码参考 上图，或自行切换测试选择自己喜欢的代码高亮主题
+
+
+
+#### 友情链接
+
+```yaml
+# 友情链接
+friends:
+  jekyll: 'https://www.jekyll.com.cn/'
+```
+
+​	按格式填写即可，排序与配置文件里的排序有关。
+
+
+
+#### 页脚
+
+```yaml
+# since
+footer:
+  since: 2018
+```
+
+​	用于页脚显示时间。
+
+
+
+#### 评论系统的切换
+
+```yaml
+# 评论 最佳体验 在disqus、livere和Gitment之间三选一
+# disqus 评论
+disqus: false
+disqus_url: '' # https://abc.disqus.com/embed.js
+# 来必力评论
+livere: true
+livere_uid: 'MTAyMC8zNDI2OS8xMDgwNg==' # MTAyMC8zNDI2OS8xMDgwNg==
+# Gitment评论 OAuth Application
+Gitment: false
+Gitment_owner: ''  # github用户名
+Gitment_repo: ''  # github博客存放的仓库名
+client_id: ''  # 注册 OAuth Application 后获得的 client_id
+client_secret: ''  # 注册 OAuth Application 后获得的 client_secret
+```
+
+​	按申请第三方评论是获取的相关信息在配置文件中进行填写即可。
+
+​	共有三款评论可供选择，使用 `true` 或者 `false` 开启或关闭某个评论系统。可开启多个甚至全开。当然，最佳体验，开一个即可。
+
+​	三款评论的样式如下图：
+
+dispus：
+
+![8](/screenshot/8.png)
+
+来必力：
+
+![9](/screenshot/9.png)
+
+Gitment评论：
+
+![10](/screenshot/10.png)
+
+​	三款评论各有各的优势与坏处。出于显示样式与中国大陆网络环境考虑，主题默认开启 `来必力` 评论为最佳体验。当然需要填写好相关的 `livere_uid` 代码。
+
+
+
+#### 文章分享的路口
+
+```yaml
+# Share : weibo, qq, wechat, tencent, douban, qzone, linkedin, diandian, facebook, twitter, google
+social-share: true
+social-share-items: ['qq', 'wechat', 'weibo', 'twitter', 'facebook']
+```
+
+​	为了让文章更方便地分享，使用了第三方分享插件[Share.js](http://overtrue.github.io/share.js/)，支持一键分享到微博、QQ空间、QQ好友、微信、腾讯微博、豆瓣、Facebook、Twitter、Linkedin、Google+、点点等社交网站。
+
+​	只需要填写相关的名称在 `social-share-items` 后即可，显示顺序与书写顺序有关。
+
+
+
+#### 网站流量追综的配置
+
+```yaml
+# 百度统计 在baidu-url里填写自己相关的url代码
+baidu: true
+baidu-url: ''
+# 谷歌分析 在google-ID里填写自己在谷歌分析获得的追踪ID
+google: false
+google-ID: ''
+```
+
+​	在 `baidu-url` 和 `google-ID` 分别填上注册获取的相关信息。使用 `true` 或者 `false` 开启或关闭他们。出于中国大陆网络环境，默认开启 百度统计 ，当然可以多开。
+
+
+
+### License 许可证
+
+HardCandy-Jekyll is licensed under [MIT](https://github.com/xukimseven/HardCandy-Jekyll/blob/master/LICENSE).
+
+
+
+### 求Star 求关注
+
+看到这里，如果你喜欢我的小项目，欢迎下载使用他，也请你为我点个小星星 😜 ，多谢。

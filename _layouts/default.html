@@ -1,29 +1,34 @@
----
-layout: compress
----
-
+<!-- 首页及其他页面的布局-Layout -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<head>
+<!-- 引入head标签 -->
+{% include head.html %}
+</head>
+<body>
+<!-- 页面主体 -->
+{{ content }}
 
-    {% if page.title != 'index' %}
-        {% include head.html %}
-    {% else %}
-        {% include index_head.html %}
-    {% endif %}
-
-<body id="page-top" class="landing-page">
-
-    {% if page.title != 'index' %}
-        {% include blog_header.html %}
-    {% endif %}
-
-    {{ content }}
-
-    {% if page.title != 'index' %}
-        {% include foot.html %}
-    {% else %}
-        {% include index_foot.html %}
-    {% endif %}
+<!-- 引用wow.js的动画效果 -->
+<script src="/assets/js/wow.js"></script>
+<script>
+    var wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        // offset: 5,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+</script>
+<!-- 页面刷新回到顶部 -->
+<script>
+    window.onbeforeunload = function(){
+        //刷新后页面自动回到顶部
+        document.documentElement.scrollTop = 0;  //ie下
+        document.body.scrollTop = 0;  //非ie
+    }
+</script>
 
 </body>
 </html>
