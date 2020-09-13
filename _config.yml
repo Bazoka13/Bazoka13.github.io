@@ -20,7 +20,7 @@ webtitle: 'Bazoka13的博客'
 bio: 'none'
 about: true
 aboutyou: 'BUAA软工在读学生，想进WF的ACMer'
-portraits: '/assets/profile.jpeg' # your portraits image file path
+portraits: '/assets/profile.jpg' # your portraits image file path
 
 # SNS
 SNS: true
