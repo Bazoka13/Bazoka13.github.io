@@ -7,3 +7,4 @@ color: rgb(255,210,32)
 cover: '../assets/1004.jpg'
 tags: Training
 ---
+Õ¼¿Ó
