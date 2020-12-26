@@ -13,7 +13,7 @@ tags: Training
 
 ### [Codeforces 1464B](https://codeforces.com/contest/1464/problem/B)
 
-最优情况一定是有一定长度的前缀为 $1(y\leq x)$ 或 $0(x\leq y)$，简单记录个前缀和遍历跑最小值就可以了
+最优情况一定是有一定长度的前缀为 $1(y\leq x)$ 或 $0(x\leq y)$，简单记录个前缀和遍历跑最小值就可以了 
 
 ### [Codeforces 1464C](https://codeforces.com/contest/1464/problem/C)
 
