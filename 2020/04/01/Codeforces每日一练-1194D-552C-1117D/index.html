@@ -8,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <meta name="description" content="1194D 1-2-K Game传送门镜像题意：一个魔法宝石可以分成m块普通宝石，询问得到n块宝石的方案数设F[i]为i块的答案，显然有F[i]&#x3D;F[i-1]+F[i-m]，即最后一块可以分，也可以不分。然后呢，再加上一点细节就可以做出来了（错乱 。 123456789101112131415161718192021222324252627282930313233343536373839">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces每日一练 1194D+552C+1117D">
+<meta property="og:title" content="Codeforces 每日一练 1194D+552C+1117D">
 <meta property="og:url" content="http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/index.html">
 <meta property="og:site_name" content="Bazoka13&#39;s Blog">
 <meta property="og:description" content="1194D 1-2-K Game传送门镜像题意：一个魔法宝石可以分成m块普通宝石，询问得到n块宝石的方案数设F[i]为i块的答案，显然有F[i]&#x3D;F[i-1]+F[i-m]，即最后一块可以分，也可以不分。然后呢，再加上一点细节就可以做出来了（错乱 。 123456789101112131415161718192021222324252627282930313233343536373839">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-04-01T12:33:02.000Z">
-<meta property="article:modified_time" content="2024-01-29T12:30:01.382Z">
+<meta property="article:modified_time" content="2024-01-29T12:37:47.193Z">
 <meta property="article:author" content="Bazoka13">
 <meta property="article:tag" content="codeforces">
 <meta name="twitter:card" content="summary">
@@ -37,7 +37,7 @@
       
     
     <!-- title -->
-    <title>Codeforces每日一练 1194D+552C+1117D</title>
+    <title>Codeforces 每日一练 1194D+552C+1117D</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -107,16 +107,16 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&text=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&is_video=false&description=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Codeforces每日一练 1194D+552C+1117D&body=Check out this article: http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&name=Codeforces每日一练 1194D+552C+1117D&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&t=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&text=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&is_video=false&description=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Codeforces 每日一练 1194D+552C+1117D&body=Check out this article: http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&name=Codeforces 每日一练 1194D+552C+1117D&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&t=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -136,7 +136,7 @@
   <header>
     
     <h1 class="posttitle p-name" itemprop="name headline">
-        Codeforces每日一练 1194D+552C+1117D
+        Codeforces 每日一练 1194D+552C+1117D
     </h1>
 
 
@@ -211,16 +211,16 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&text=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&is_video=false&description=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Codeforces每日一练 1194D+552C+1117D&body=Check out this article: http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&name=Codeforces每日一练 1194D+552C+1117D&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&t=Codeforces每日一练 1194D+552C+1117D"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&text=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&is_video=false&description=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Codeforces 每日一练 1194D+552C+1117D&body=Check out this article: http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&title=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&name=Codeforces 每日一练 1194D+552C+1117D&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/&t=Codeforces 每日一练 1194D+552C+1117D"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
