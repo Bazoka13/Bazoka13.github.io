@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="1030D Vasya and Triangle传送门1700 数论+几何题意：给定整数n,m,k，是否能在x∈[0,n],y∈[0,m]的范围内找出三个整数点使得构成的三角形面积为$\frac{nm}{k}$。不难看出构成的三角形面积必定为整数，那么当且仅当$\frac{2nm}{k}$为整数的时候可以找到三个符合条件的格点，那么现在只需要将$\frac{2nm}{k}$分解为一个小于等于n和一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Codeforces每日一练 1030D+1154E+540D">
+<meta property="og:url" content="http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/index.html">
+<meta property="og:site_name" content="Bazoka13&#39;s Blog">
+<meta property="og:description" content="1030D Vasya and Triangle传送门1700 数论+几何题意：给定整数n,m,k，是否能在x∈[0,n],y∈[0,m]的范围内找出三个整数点使得构成的三角形面积为$\frac{nm}{k}$。不难看出构成的三角形面积必定为整数，那么当且仅当$\frac{2nm}{k}$为整数的时候可以找到三个符合条件的格点，那么现在只需要将$\frac{2nm}{k}$分解为一个小于等于n和一">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-03-26T11:39:39.000Z">
+<meta property="article:modified_time" content="2024-01-29T12:31:19.780Z">
+<meta property="article:author" content="Bazoka13">
+<meta property="article:tag" content="codeforces">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Codeforces每日一练 1030D+1154E+540D</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J5RCECPMQ"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5J5RCECPMQ');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2020/03/25/Codeforcs-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-678C-527C-1012C/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&text=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&title=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&is_video=false&description=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Codeforces每日一练 1030D+1154E+540D&body=Check out this article: http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&title=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&title=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&title=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&title=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&name=Codeforces每日一练 1030D+1154E+540D&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&t=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1030D-Vasya-and-Triangle"><span class="toc-number">1.</span> <span class="toc-text">1030D Vasya and Triangle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1154E-Two-Teams"><span class="toc-number">2.</span> <span class="toc-text">1154E Two Teams</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#540D-Bad-Luck-Island"><span class="toc-number">3.</span> <span class="toc-text">540D Bad Luck Island</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Codeforces每日一练 1030D+1154E+540D
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Bazoka13</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-03-26T11:39:39.000Z" class="dt-published" itemprop="datePublished">2020-03-26</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/codeforces/" rel="tag">codeforces</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="1030D-Vasya-and-Triangle"><a href="#1030D-Vasya-and-Triangle" class="headerlink" title="1030D Vasya and Triangle"></a>1030D Vasya and Triangle</h2><p><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1030/D">传送门</a><br>1700 数论+几何<br>题意：给定整数n,m,k，是否能在x∈[0,n],y∈[0,m]的范围内找出三个整数点使得构成的三角形面积为$\frac{nm}{k}$。<br>不难看出构成的三角形面积必定为整数，那么当且仅当$\frac{2nm}{k}$为整数的时候可以找到三个符合条件的格点，那么现在只需要将$\frac{2nm}{k}$分解为一个小于等于n和一个小于等于m的因子即可。考虑求出a&#x3D;gcd(n,k)，如果a为1，那么n和$\frac{2m}{k}$就是一对满足的因子，如果不为1，那么$\frac{2n}{a}$和$\frac{am}{k}$就是一对符合的因子</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS  ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 5005</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="function">ll <span class="title">gcd</span><span class="params">(ll a,ll b)</span></span>&#123;<span class="keyword">if</span>(!b)<span class="keyword">return</span> a;<span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">gcd</span>(b,a%b);&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    IOS</span><br><span class="line">    ll n,m,k;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;k;</span><br><span class="line">    <span class="keyword">if</span>((n*m*<span class="number">2</span>)%k!=<span class="number">0</span>)cout&lt;&lt;<span class="string">&quot;NO&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;YES&quot;</span>&lt;&lt;endl;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;0 0&quot;</span>&lt;&lt;endl;</span><br><span class="line">        ll tmp=<span class="built_in">gcd</span>(<span class="number">2</span>*n,k);</span><br><span class="line">        <span class="keyword">if</span>(tmp==<span class="number">1</span>)&#123;cout&lt;&lt;n&lt;&lt;<span class="string">&quot; 0\n&quot;</span>&lt;&lt;<span class="string">&quot;0 &quot;</span>&lt;&lt;<span class="number">2</span>*m/k;&#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;cout&lt;&lt;<span class="number">2</span>*n/tmp&lt;&lt;<span class="string">&quot; 0\n&quot;</span>&lt;&lt;<span class="string">&quot;0 &quot;</span>&lt;&lt;m*tmp/k;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1154E-Two-Teams"><a href="#1154E-Two-Teams" class="headerlink" title="1154E Two Teams"></a>1154E Two Teams</h2><p><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1154/E">传送门</a><br>1800 数据结构<br>题意：从两个教练依次选人，每次选未被选择的学生中能力最大的，并从其两侧各选连续的k个人，输出最后每个人所在队伍的编号。<br>这道题方法就很多了，可以线段树，链表，或者用set模拟。<br>这里简单说说双向链表的做法，每次找到当前最大值，沿着两边的方向各找k个，处理编号后删去，将剩下的两段连接即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> db double</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ld long double</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 200005</span></span><br><span class="line"><span class="type">int</span> n,k;</span><br><span class="line"><span class="type">int</span> a[maxn],nxt[maxn],pre[maxn],sig[maxn];</span><br><span class="line">map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; mp;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios_base::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;cin&gt;&gt;a[i];nxt[i]=i+<span class="number">1</span>;mp[a[i]]=i;pre[i]=i<span class="number">-1</span>;&#125;</span><br><span class="line">    <span class="type">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    pre[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">    nxt[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    pre[n+<span class="number">1</span>]=n;</span><br><span class="line">    nxt[n+<span class="number">1</span>]=n+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = n; j &gt;=<span class="number">1</span> ; --j) &#123;</span><br><span class="line">        <span class="keyword">if</span>(mp[j]!=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="type">int</span> l=mp[j],r=mp[j];</span><br><span class="line">            sig[mp[j]]=cnt;</span><br><span class="line">            mp[j]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;k ; ++i) &#123;</span><br><span class="line">                l=pre[l];</span><br><span class="line">                <span class="keyword">if</span>(l==<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">                sig[l]=cnt;</span><br><span class="line">                mp[a[l]]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> m = <span class="number">0</span>; m &lt;k ; ++m) &#123;</span><br><span class="line">                r=nxt[r];</span><br><span class="line">                <span class="keyword">if</span>(r==n+<span class="number">1</span>)<span class="keyword">break</span>;</span><br><span class="line">                sig[r]=cnt;</span><br><span class="line">                mp[a[r]]=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            nxt[pre[l]]=nxt[r];</span><br><span class="line">            pre[nxt[r]]=pre[l];</span><br><span class="line">            cnt++;</span><br><span class="line">            cnt%=<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=n ; ++i) &#123;</span><br><span class="line">        cout&lt;&lt;sig[i]+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="540D-Bad-Luck-Island"><a href="#540D-Bad-Luck-Island" class="headerlink" title="540D Bad Luck Island"></a>540D Bad Luck Island</h2><p><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/540/D">传送门</a><br>2100 概率dp<br>题意：一座岛上有三种生物，r个石头，s个剪刀，p个布，捕食关系就是剪刀石头布的关系，每次选两个，如果不同就按照捕食关系删去被捕食的一个，询问足够长的时间后，仅剩石头&#x2F;剪刀&#x2F;布的概率<br>开个三维数组记录石头、剪刀、布的数量，然后就是转移方程</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dp[i][j<span class="number">-1</span>][k]+=dp[i][j][k]*x*y/(x*y+y*z+z*x);</span><br><span class="line">dp[i<span class="number">-1</span>][j][k]+=dp[i][j][k]*x*z/(x*y+y*z+z*x)</span><br><span class="line">dp[i][j][k<span class="number">-1</span>]+=dp[i][j][k]*y*z/(x*y+y*z+z*x);</span><br></pre></td></tr></table></figure>
+<p>从左到右分别是石头、剪刀、布的数量。<br>需要注意的一点是，取生物时，只需要利用不同的情况计算概率即可，为什么不考虑相同呢？如果取到相同的生物，相当于当前的状态没有发生变化，那么就会一直保持当前的状态直到取到两个不同的生物，所以取相同的生物的情况不需要加入我们考虑的范围内。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS  ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 105</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ld long double</span></span><br><span class="line"><span class="type">int</span> r,s,p;</span><br><span class="line">ld dp[maxn][maxn][maxn];</span><br><span class="line">ld a=<span class="number">0</span>,b=<span class="number">0</span>,c=<span class="number">0</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> eps 1e-10</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;r&gt;&gt;s&gt;&gt;p;</span><br><span class="line">    dp[r][s][p]=<span class="number">1.0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = r; i &gt;=<span class="number">0</span> ; --i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = s; j &gt;=<span class="number">0</span> ; --j) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = p; k &gt;=<span class="number">0</span> ; --k) &#123;</span><br><span class="line">                ld x=i,y=j,z=k;</span><br><span class="line">                <span class="keyword">if</span>(x*y+y*z+z*x&lt;=eps)<span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span>(j&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">                    dp[i][j<span class="number">-1</span>][k]+=dp[i][j][k]*x*y/(x*y+y*z+z*x);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(i&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">                    dp[i<span class="number">-1</span>][j][k]+=dp[i][j][k]*x*z/(x*y+y*z+z*x);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(k&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">                    dp[i][j][k<span class="number">-1</span>]+=dp[i][j][k]*y*z/(x*y+y*z+z*x);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = r; i &gt;<span class="number">0</span> ; --i) a+=dp[i][<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = s; i &gt;<span class="number">0</span> ; --i) b+=dp[<span class="number">0</span>][i][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = p; i &gt;<span class="number">0</span> ; --i) c+=dp[<span class="number">0</span>][<span class="number">0</span>][i];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%.12Lf %.12Lf %.12Lf&quot;</span>,a,b,c);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1030D-Vasya-and-Triangle"><span class="toc-number">1.</span> <span class="toc-text">1030D Vasya and Triangle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1154E-Two-Teams"><span class="toc-number">2.</span> <span class="toc-text">1154E Two Teams</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#540D-Bad-Luck-Island"><span class="toc-number">3.</span> <span class="toc-text">540D Bad Luck Island</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&text=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&title=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&is_video=false&description=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Codeforces每日一练 1030D+1154E+540D&body=Check out this article: http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&title=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&title=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&title=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&title=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&name=Codeforces每日一练 1030D+1154E+540D&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/&t=Codeforces每日一练 1030D+1154E+540D"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Bazoka13
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

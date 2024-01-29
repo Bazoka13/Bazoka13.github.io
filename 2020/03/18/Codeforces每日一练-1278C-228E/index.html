@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="1278C Berry Jam题目链接一开始想的是双指针去贪心，然后wa2wa了三发QAQ然后换了思路，草莓果酱还用1，蓝莓果酱用-1表示，那么最终的结果就是现存果酱的总和为0。并且考虑到左右剩余的果酱一定是连续的，欸嘿嘿嘿，连续+和，然后就想到可以前缀和的思路搞一搞。左边就是从1到n求出前缀和，右边n+1~2n求一个后缀和，显然就是对左边任意一个点的前缀和去后缀和里找与其和为0的点，但是暴力匹配">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Codeforces每日一练 1278C+228E">
+<meta property="og:url" content="http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/index.html">
+<meta property="og:site_name" content="Bazoka13&#39;s Blog">
+<meta property="og:description" content="1278C Berry Jam题目链接一开始想的是双指针去贪心，然后wa2wa了三发QAQ然后换了思路，草莓果酱还用1，蓝莓果酱用-1表示，那么最终的结果就是现存果酱的总和为0。并且考虑到左右剩余的果酱一定是连续的，欸嘿嘿嘿，连续+和，然后就想到可以前缀和的思路搞一搞。左边就是从1到n求出前缀和，右边n+1~2n求一个后缀和，显然就是对左边任意一个点的前缀和去后缀和里找与其和为0的点，但是暴力匹配">
+<meta property="og:locale">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200318084120111.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjgyMTQ4,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-03-18T00:49:30.000Z">
+<meta property="article:modified_time" content="2024-01-29T12:34:45.903Z">
+<meta property="article:author" content="Bazoka13">
+<meta property="article:tag" content="codeforces">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200318084120111.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjgyMTQ4,size_16,color_FFFFFF,t_70">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Codeforces每日一练 1278C+228E</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J5RCECPMQ"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5J5RCECPMQ');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-150A-776D-721C/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&text=Codeforces每日一练 1278C+228E"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&title=Codeforces每日一练 1278C+228E"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&is_video=false&description=Codeforces每日一练 1278C+228E"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Codeforces每日一练 1278C+228E&body=Check out this article: http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&title=Codeforces每日一练 1278C+228E"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&title=Codeforces每日一练 1278C+228E"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&title=Codeforces每日一练 1278C+228E"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&title=Codeforces每日一练 1278C+228E"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&name=Codeforces每日一练 1278C+228E&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&t=Codeforces每日一练 1278C+228E"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1278C-Berry-Jam"><span class="toc-number">1.</span> <span class="toc-text">1278C Berry Jam</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#228E-The-Road-to-Berland-is-Paved-With-Good-Intentions"><span class="toc-number">2.</span> <span class="toc-text">228E The Road to Berland is Paved With Good Intentions</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Codeforces每日一练 1278C+228E
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Bazoka13</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-03-18T00:49:30.000Z" class="dt-published" itemprop="datePublished">2020-03-18</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/codeforces/" rel="tag">codeforces</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="1278C-Berry-Jam"><a href="#1278C-Berry-Jam" class="headerlink" title="1278C Berry Jam"></a>1278C Berry Jam</h2><p><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1278/C">题目链接</a><br>一开始想的是双指针去贪心，然后wa2wa了三发QAQ<br>然后换了思路，草莓果酱还用1，蓝莓果酱用-1表示，那么最终的结果就是现存果酱的总和为0。<br>并且考虑到左右剩余的果酱一定是连续的，欸嘿嘿嘿，连续+和，然后就想到可以前缀和的思路搞一搞。<br>左边就是从1到n求出前缀和，右边n+1~2n求一个后缀和，显然就是对左边任意一个点的前缀和去后缀和里找与其和为0的点，但是暴力匹配O(n^2)，考虑用map存下右边的后缀和以及对应的剩余果酱数。然后遍历左边前缀和即可。（记得考虑任一侧果酱数为0的情况）<br>代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS ios_base::sync_with_stdio(false);cin.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 200005</span></span><br><span class="line"><span class="type">int</span> a[maxn],s[maxn],b[maxn];</span><br><span class="line">map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; mp;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// IOS</span></span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    cin&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span> (t--)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(s,<span class="number">0</span>, <span class="built_in">sizeof</span>(s));</span><br><span class="line">        <span class="built_in">memset</span>(b,<span class="number">0</span>, <span class="built_in">sizeof</span>(b));</span><br><span class="line">        mp.<span class="built_in">clear</span>();</span><br><span class="line">        <span class="built_in">memset</span>(a,<span class="number">0</span>, <span class="built_in">sizeof</span>(a));</span><br><span class="line">        <span class="type">int</span> n;</span><br><span class="line">        cin&gt;&gt;n;</span><br><span class="line">        <span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">2</span>*n;i++)&#123;</span><br><span class="line">            cin&gt;&gt;a[i];</span><br><span class="line">            <span class="keyword">if</span>(a[i]==<span class="number">2</span>)a[i]=<span class="number">-1</span>;</span><br><span class="line">            sum+=a[i];</span><br><span class="line">            <span class="keyword">if</span>(i&lt;=n)s[i]=s[i<span class="number">-1</span>]+a[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        mp[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">2</span>*n; j &gt;=n+<span class="number">1</span> ; --j) &#123;</span><br><span class="line">            b[j]=a[j]+b[j+<span class="number">1</span>];</span><br><span class="line">            mp[b[j]]=<span class="number">2</span>*n-j+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(sum==<span class="number">0</span>)cout&lt;&lt;<span class="number">0</span>&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;=n ; ++i) &#123;</span><br><span class="line">                <span class="keyword">if</span>(mp.<span class="built_in">count</span>(<span class="number">0</span>-s[i]))&#123;</span><br><span class="line">                    ans=<span class="built_in">max</span>(ans,i+mp[<span class="number">0</span>-s[i]]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            cout&lt;&lt;<span class="number">2</span>*n-ans&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="228E-The-Road-to-Berland-is-Paved-With-Good-Intentions"><a href="#228E-The-Road-to-Berland-is-Paved-With-Good-Intentions" class="headerlink" title="228E The Road to Berland is Paved With Good Intentions"></a>228E The Road to Berland is Paved With Good Intentions</h2><p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/228/problem/E">题目链接</a><br>很明显对于任意点，只有取和不取两种情况（取偶数次周围情况不变，取n次与取n%2次效果一样）.<br>考虑每一条边，如果是1，那么两端要么取，要么不取，如果是0，则只能取一端。想到这，就联想到了关押罪犯的思路，一个传统并查集＋一个enemy数组存敌人。边权为0时，两个端点互相存一个enemy。<br>那么就是随便取一个点，然后取所有和它父亲一样或敌人一样的。<br>然后就~<br><img src="https://img-blog.csdnimg.cn/20200318084120111.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjgyMTQ4,size_16,color_FFFFFF,t_70"><br>猛男落泪.jpg<br>然后想到图可能不是联通的，需要把每个连通块里都任意取一个点出来，然后神速写了个dfs染色，结果还是wa43，然后今天早上被大佬指点，发现处理并查集的时候，任意两个点如果父亲相同（取的状态相同），那么也应该合并他们敌人的家族。<br>然后就ac了~<br>代码如下</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS ios_base::sync_with_stdio(false);cin.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 105</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> for_(i,n) for(ll (i)=1;(i)&lt;=(n);i++)</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">edge</span>&#123;</span><br><span class="line">    <span class="type">int</span> u,v,w;</span><br><span class="line">&#125;;</span><br><span class="line">vector&lt;edge&gt; e;</span><br><span class="line">set&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line"><span class="type">int</span> f[maxn],enemy[maxn];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">findfa</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==f[x])<span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        f[x]=<span class="built_in">findfa</span>(f[x]);</span><br><span class="line">        <span class="keyword">return</span> f[x];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">mergefa</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> fa=<span class="built_in">findfa</span>(a),fb=<span class="built_in">findfa</span>(b);</span><br><span class="line">    <span class="keyword">if</span>(fa==fb)<span class="keyword">return</span> ;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        f[fa]=fb;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; g[maxn];</span><br><span class="line"><span class="type">int</span> col[maxn];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> fa,<span class="type">int</span> co)</span></span>&#123;</span><br><span class="line">    col[x]=co;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i:g[x])&#123;</span><br><span class="line">        <span class="keyword">if</span>(i!=fa&amp;&amp;col[i]==<span class="number">0</span>)<span class="built_in">dfs</span>(i,x,co);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS</span><br><span class="line">    <span class="type">int</span> n,m;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        <span class="type">int</span> u,v,w;</span><br><span class="line">        cin&gt;&gt;u&gt;&gt;v&gt;&gt;w;</span><br><span class="line">        g[u].<span class="built_in">push_back</span>(v);</span><br><span class="line">        g[v].<span class="built_in">push_back</span>(u);</span><br><span class="line">        e.<span class="built_in">push_back</span>(&#123;u,v,w&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    for_(i,n)&#123;</span><br><span class="line">        f[i]=i;</span><br><span class="line">        <span class="keyword">if</span>(!col[i])&#123;<span class="built_in">dfs</span>(i,<span class="number">0</span>,i);&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i:e)&#123;</span><br><span class="line">        <span class="type">int</span> u=i.u,v=i.v;</span><br><span class="line">        <span class="keyword">if</span>(i.w==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="built_in">mergefa</span>(i.u,i.v);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">findfa</span>(u)==<span class="built_in">findfa</span>(v))&#123;</span><br><span class="line">                cout&lt;&lt;<span class="string">&quot;Impossible&quot;</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!enemy[u])enemy[u]=<span class="built_in">findfa</span>(v);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">mergefa</span>(enemy[u],v);</span><br><span class="line">            <span class="keyword">if</span>(!enemy[v])enemy[v]=<span class="built_in">findfa</span>(u);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">mergefa</span>(enemy[v],u);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for_(i,n)&#123;</span><br><span class="line">        for_(j,n)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">findfa</span>(i)==<span class="built_in">findfa</span>(j)&amp;&amp;enemy[i]!=<span class="number">0</span>&amp;&amp;enemy[j]!=<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">mergefa</span>(enemy[i],enemy[j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    for_(i,n)ans.<span class="built_in">insert</span>(col[i]);</span><br><span class="line">    set&lt;<span class="type">int</span>&gt; sum;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i:ans)&#123;</span><br><span class="line">        <span class="type">int</span> fa=<span class="built_in">findfa</span>(i);</span><br><span class="line">        for_(j,n)&#123;</span><br><span class="line">            <span class="keyword">if</span>(col[j]!=i)<span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">findfa</span>(j)==fa)&#123;sum.<span class="built_in">insert</span>(j);&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;sum.<span class="built_in">size</span>()&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i:sum)cout&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相比位运算的并查集的确多了不少码~（原谅蒟蒻没看懂取异或的并查集做法QAQ）</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1278C-Berry-Jam"><span class="toc-number">1.</span> <span class="toc-text">1278C Berry Jam</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#228E-The-Road-to-Berland-is-Paved-With-Good-Intentions"><span class="toc-number">2.</span> <span class="toc-text">228E The Road to Berland is Paved With Good Intentions</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&text=Codeforces每日一练 1278C+228E"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&title=Codeforces每日一练 1278C+228E"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&is_video=false&description=Codeforces每日一练 1278C+228E"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Codeforces每日一练 1278C+228E&body=Check out this article: http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&title=Codeforces每日一练 1278C+228E"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&title=Codeforces每日一练 1278C+228E"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&title=Codeforces每日一练 1278C+228E"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&title=Codeforces每日一练 1278C+228E"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&name=Codeforces每日一练 1278C+228E&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/&t=Codeforces每日一练 1278C+228E"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Bazoka13
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

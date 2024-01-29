@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="A - Kth Term模拟水题，复制粘贴即可 12345678910111213141516#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;#define maxn 1010#define IOS ios_base::sync_with_stdio(false);cin.tie(0);#pragma GCC optimize(2)#define">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Atcoder Panasonic Programming Contest 2020 题解">
+<meta property="og:url" content="http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Bazoka13&#39;s Blog">
+<meta property="og:description" content="A - Kth Term模拟水题，复制粘贴即可 12345678910111213141516#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;#define maxn 1010#define IOS ios_base::sync_with_stdio(false);cin.tie(0);#pragma GCC optimize(2)#define">
+<meta property="og:locale">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020031509294521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjgyMTQ4,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-03-15T01:38:08.000Z">
+<meta property="article:modified_time" content="2024-01-29T12:35:22.306Z">
+<meta property="article:author" content="Bazoka13">
+<meta property="article:tag" content="atcoder">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2020031509294521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjgyMTQ4,size_16,color_FFFFFF,t_70">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Atcoder Panasonic Programming Contest 2020 题解</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J5RCECPMQ"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5J5RCECPMQ');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2020/03/18/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1278C-228E/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2020/01/29/hello-world/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&text=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&title=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&is_video=false&description=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Atcoder Panasonic Programming Contest 2020 题解&body=Check out this article: http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&title=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&title=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&title=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&title=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&name=Atcoder Panasonic Programming Contest 2020 题解&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&t=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Kth-Term"><span class="toc-number">1.</span> <span class="toc-text">A - Kth Term</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-Bishop"><span class="toc-number">2.</span> <span class="toc-text">B - Bishop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Sqrt-Inequality"><span class="toc-number">3.</span> <span class="toc-text">C - Sqrt Inequality</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-String-Equivalence"><span class="toc-number">4.</span> <span class="toc-text">D - String Equivalence</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-Three-Substrings"><span class="toc-number">5.</span> <span class="toc-text">E - Three Substrings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F-Fractal-Shortest-Path"><span class="toc-number">6.</span> <span class="toc-text">F - Fractal Shortest Path</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Atcoder Panasonic Programming Contest 2020 题解
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Bazoka13</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-03-15T01:38:08.000Z" class="dt-published" itemprop="datePublished">2020-03-15</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/atcoder/" rel="tag">atcoder</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="A-Kth-Term"><a href="#A-Kth-Term" class="headerlink" title="A - Kth Term"></a>A - Kth Term</h2><p>模拟水题，复制粘贴即可</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 1010</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS ios_base::sync_with_stdio(false);cin.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> GCC optimize(2)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> makefa(n) for(int i=1;i&lt;=(n);i++)f[i]=i;</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> hh puts(<span class="string">&quot;&quot;</span>);</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">32</span>]=&#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">14</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">15</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">51</span>&#125;;</span><br><span class="line">    <span class="type">int</span> k;</span><br><span class="line">    cin&gt;&gt;k;</span><br><span class="line">    cout&lt;&lt;a[k<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="B-Bishop"><a href="#B-Bishop" class="headerlink" title="B - Bishop"></a>B - Bishop</h2><p>看图差不多就能看出规律，奇数行的偶数位走不到，偶数行的奇数位走不到，但要注意特判1，h或w为1时只能是1个（蒟蒻就这wa了五发QAQ）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 1010</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS ios_base::sync_with_stdio(false);cin.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> GCC optimize(2)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> makefa(n) for(int i=1;i&lt;=(n);i++)f[i]=i;</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> hh puts(<span class="string">&quot;&quot;</span>);</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll h,w;</span><br><span class="line">    cin&gt;&gt;h&gt;&gt;w;</span><br><span class="line">    <span class="keyword">if</span>(w==<span class="number">1</span>||h==<span class="number">1</span>)&#123;cout&lt;&lt;<span class="string">&quot;1&quot;</span>;<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br><span class="line">    ll x=w/<span class="number">2</span>,y=h/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(w%<span class="number">2</span>!=<span class="number">0</span>)x++;</span><br><span class="line">    <span class="keyword">if</span>(h%<span class="number">2</span>!=<span class="number">0</span>)y++;</span><br><span class="line">    ll ans=x*y;</span><br><span class="line">    ans+=(w-x)*(h-y);</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="C-Sqrt-Inequality"><a href="#C-Sqrt-Inequality" class="headerlink" title="C - Sqrt Inequality"></a>C - Sqrt Inequality</h2><p>模拟水题，但是会卡double精度，一开始只把double换成了long double,没有两边平方，两边平方后sqrt&#x2F;sqrtl求均可（感谢某位大佬指点）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ld long double</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	ld a,b,c;</span><br><span class="line">	cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">	<span class="keyword">if</span>(a+b+<span class="number">2</span>*<span class="built_in">sqrtl</span>(a*b)&lt;c)cout&lt;&lt;<span class="string">&quot;Yes&quot;</span>;</span><br><span class="line">	<span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;No&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="D-String-Equivalence"><a href="#D-String-Equivalence" class="headerlink" title="D - String Equivalence"></a>D - String Equivalence</h2><p>（早知道D这么水我就先做D了）<br>很明显的一道dfs题，求一个加了限制条件的全排列，对于第k位来说，当前位置最多能放的字母种类一定和之前的位置有关，如果前k-1位放了dif种字母，那么第k位就可以放dif+1种字母，dfs过程中记录dif就好.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 1010</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS ios_base::sync_with_stdio(false);cin.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> GCC optimize(2)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> makefa(n) for(int i=1;i&lt;=(n);i++)f[i]=i;</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> hh puts(<span class="string">&quot;&quot;</span>);</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> eps 1e-10</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> db double</span></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> dif=<span class="number">0</span>;</span><br><span class="line"><span class="type">char</span> s[maxn];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> i)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(i==n+<span class="number">1</span>)&#123;</span><br><span class="line">        cout&lt;&lt;s+<span class="number">1</span>&lt;&lt;endl;</span><br><span class="line">        <span class="keyword">return</span>;&#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;=dif ; ++j) &#123;</span><br><span class="line">        s[i]=<span class="string">&#x27;a&#x27;</span>+j;</span><br><span class="line">        <span class="type">int</span> tmp=dif;</span><br><span class="line">        <span class="keyword">if</span>(j==dif)dif++;</span><br><span class="line">        <span class="built_in">dfs</span>(i+<span class="number">1</span>);</span><br><span class="line">        dif=tmp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="E-Three-Substrings"><a href="#E-Three-Substrings" class="headerlink" title="E - Three Substrings"></a>E - Three Substrings</h2><p>dp题<br>答案可以通过计算a,b,c的相对位置得出，不妨固定a的首字母位置是0，那么b，c的首字母的位置可能是-4000~4000，遍历可能的位置并判断当前位置是否合法，遍历过程中更新答案即可。<br>怎么找合法位置，比如下图<br><img src="https://img-blog.csdnimg.cn/2020031509294521.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjgyMTQ4,size_16,color_FFFFFF,t_70" alt="忽略字体QAQ"><br>对于a和b固定a的首字母位置为0，然后两个for判断匹配情况，如果a的第i个字符与b的第j个字符不匹配（不相同或者均不为’?’），那么b的首字母位置就是i-j+0，标记该位置记为不合法情况，依次处理ab，bc，ac（三个数组记录，图中分别是ab，bc，ac，即固定前者的情况下后者的相对位置）。</p>
+<p>计算答案时，b相对位置为i，c相对位置为j，则c相对于b的位置为j-i（画图易得）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 2010</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS ios_base::sync_with_stdio(false);cin.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> GCC optimize(2)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> makefa(n) for(int i=1;i&lt;=(n);i++)f[i]=i;</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> hh puts(<span class="string">&quot;&quot;</span>);</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> eps 1e-10</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> db double</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> AC 2333</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> REP(i,n) for((i)=0;(i)&lt;(n);(i)++)</span></span><br><span class="line"><span class="type">bool</span> ab[maxn+<span class="number">20000</span>],ac[maxn+<span class="number">20000</span>],bc[maxn+<span class="number">20000</span>];</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">match</span><span class="params">(<span class="type">char</span> c,<span class="type">char</span> d)</span></span>&#123;<span class="keyword">return</span> c==d||c==<span class="string">&#x27;?&#x27;</span>||d==<span class="string">&#x27;?&#x27;</span>;&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   IOS</span><br><span class="line">   string a,b,c;</span><br><span class="line">   cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">   <span class="type">int</span> i,j;</span><br><span class="line">   <span class="type">int</span> la=a.<span class="built_in">size</span>(),lb=b.<span class="built_in">size</span>(),lc=c.<span class="built_in">size</span>();</span><br><span class="line">   <span class="built_in">REP</span>(i,la)<span class="built_in">REP</span>(j,lb)<span class="keyword">if</span>(!<span class="built_in">match</span>(a[i],b[j]))ab[i-j+<span class="number">10000</span>]=<span class="literal">true</span>;</span><br><span class="line">    <span class="built_in">REP</span>(i,la)<span class="built_in">REP</span>(j,lc)<span class="keyword">if</span>(!<span class="built_in">match</span>(a[i],c[j]))ac[i-j+<span class="number">10000</span>]=<span class="literal">true</span>;</span><br><span class="line">    <span class="built_in">REP</span>(i,lb)<span class="built_in">REP</span>(j,lc)<span class="keyword">if</span>(!<span class="built_in">match</span>(b[i],c[j]))bc[i-j+<span class="number">10000</span>]=<span class="literal">true</span>;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">3</span>*maxn;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">-2</span>*maxn; i &lt;=<span class="number">2</span>*maxn ; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">-2</span>*maxn;  j&lt;=<span class="number">2</span>*maxn ; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(!ab[i+<span class="number">10000</span>] &amp;&amp; !ac[j+<span class="number">10000</span>] &amp;&amp; !bc[j-i+<span class="number">10000</span>])&#123;</span><br><span class="line">                <span class="type">int</span> l=<span class="built_in">min</span>(<span class="number">0</span>,<span class="built_in">min</span>(i,j));</span><br><span class="line">                <span class="type">int</span> r=<span class="built_in">max</span>(la,<span class="built_in">max</span>(lb+i,j+lc));</span><br><span class="line">                ans=<span class="built_in">min</span>(ans,r-l);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="F-Fractal-Shortest-Path"><a href="#F-Fractal-Shortest-Path" class="headerlink" title="F - Fractal Shortest Path"></a>F - Fractal Shortest Path</h2>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Kth-Term"><span class="toc-number">1.</span> <span class="toc-text">A - Kth Term</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-Bishop"><span class="toc-number">2.</span> <span class="toc-text">B - Bishop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Sqrt-Inequality"><span class="toc-number">3.</span> <span class="toc-text">C - Sqrt Inequality</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-String-Equivalence"><span class="toc-number">4.</span> <span class="toc-text">D - String Equivalence</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-Three-Substrings"><span class="toc-number">5.</span> <span class="toc-text">E - Three Substrings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F-Fractal-Shortest-Path"><span class="toc-number">6.</span> <span class="toc-text">F - Fractal Shortest Path</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&text=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&title=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&is_video=false&description=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Atcoder Panasonic Programming Contest 2020 题解&body=Check out this article: http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&title=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&title=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&title=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&title=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&name=Atcoder Panasonic Programming Contest 2020 题解&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/03/15/Atcoder-Panasonic-Programming-Contest-2020-%E9%A2%98%E8%A7%A3/&t=Atcoder Panasonic Programming Contest 2020 题解"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Bazoka13
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

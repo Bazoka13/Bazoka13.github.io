@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="A Coffee题意：给你一个字符串，判断第3、4个字符是否相同，第5、6个字符是否相同。模拟水题。直接判断就好。 1234567891011#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;signed main()&amp;#123;    string a;    cin&gt;&gt;a;    if(a[2]&#x3D;&#x3D;a[3]&amp;&amp;a[4]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AtCoder Beginner Contest 160 题解（F待填坑）">
+<meta property="og:url" content="http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/index.html">
+<meta property="og:site_name" content="Bazoka13&#39;s Blog">
+<meta property="og:description" content="A Coffee题意：给你一个字符串，判断第3、4个字符是否相同，第5、6个字符是否相同。模拟水题。直接判断就好。 1234567891011#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;signed main()&amp;#123;    string a;    cin&gt;&gt;a;    if(a[2]&#x3D;&#x3D;a[3]&amp;&amp;a[4]">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-03-28T13:41:53.000Z">
+<meta property="article:modified_time" content="2024-01-29T12:30:40.463Z">
+<meta property="article:author" content="Bazoka13">
+<meta property="article:tag" content="atcoder">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>AtCoder Beginner Contest 160 题解（F待填坑）</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J5RCECPMQ"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5J5RCECPMQ');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2020/04/01/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1194D-552C-1117D/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2020/03/26/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1030D-1154E-540D/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&text=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&title=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&is_video=false&description=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AtCoder Beginner Contest 160 题解（F待填坑）&body=Check out this article: http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&title=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&title=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&title=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&title=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&name=AtCoder Beginner Contest 160 题解（F待填坑）&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&t=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Coffee"><span class="toc-number">1.</span> <span class="toc-text">A Coffee</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-Golden-Coins"><span class="toc-number">2.</span> <span class="toc-text">B Golden Coins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Traveling-Salesman-around-Lake"><span class="toc-number">3.</span> <span class="toc-text">C Traveling Salesman around Lake</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-Line"><span class="toc-number">4.</span> <span class="toc-text">D Line++</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-Red-and-Green-Apples"><span class="toc-number">5.</span> <span class="toc-text">E Red and Green Apples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F-Distributing-Integers"><span class="toc-number">6.</span> <span class="toc-text">F Distributing Integers</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        AtCoder Beginner Contest 160 题解（F待填坑）
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Bazoka13</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-03-28T13:41:53.000Z" class="dt-published" itemprop="datePublished">2020-03-28</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/atcoder/" rel="tag">atcoder</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="A-Coffee"><a href="#A-Coffee" class="headerlink" title="A Coffee"></a>A Coffee</h2><p>题意：给你一个字符串，判断第3、4个字符是否相同，第5、6个字符是否相同。<br>模拟水题。直接判断就好。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string a;</span><br><span class="line">    cin&gt;&gt;a;</span><br><span class="line">    <span class="keyword">if</span>(a[<span class="number">2</span>]==a[<span class="number">3</span>]&amp;&amp;a[<span class="number">4</span>]==a[<span class="number">5</span>])cout&lt;&lt;<span class="string">&quot;Yes&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;No&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="B-Golden-Coins"><a href="#B-Golden-Coins" class="headerlink" title="B Golden Coins"></a>B Golden Coins</h2><p>题意：有数目X的money，500日元是1000快乐值，5日元是5快乐值，5日元可以通过和其他纸币组合达到500从而增加快乐值。问最大能获得多少快乐值。<br>显然500比5要优，贪心一下能取500就取500，否则就取5</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 110</span></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll x;</span><br><span class="line">    cin&gt;&gt;x;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    ans+=(x/<span class="number">500</span>)*<span class="number">1000</span>;</span><br><span class="line">    x%=<span class="number">500</span>;</span><br><span class="line">    ans+=(x/<span class="number">5</span>)*<span class="number">5</span>;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="C-Traveling-Salesman-around-Lake"><a href="#C-Traveling-Salesman-around-Lake" class="headerlink" title="C Traveling Salesman around Lake"></a>C Traveling Salesman around Lake</h2><p>题意：一个周长为k的圆，上面有n座房子，输出从一座房子出发走遍所有房子的最短路程。<br>直接找相邻的两个房子中距离最大的一对就好</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 200005</span></span><br><span class="line"><span class="type">int</span> a[maxn];</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> k,n;</span><br><span class="line">    cin&gt;&gt;k&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=n ; ++i) &#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> tmp=k-a[n]+a[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">2</span>; j &lt;=n ; ++j) &#123;</span><br><span class="line">        tmp=<span class="built_in">max</span>(tmp,a[j]-a[j<span class="number">-1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;k-tmp;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="D-Line"><a href="#D-Line" class="headerlink" title="D Line++"></a>D Line++</h2><p>题意：每个点都和编号比他大一的点连边，同时给定一对不相邻的点连边，问距离为1~n-1的点对有多少对.<br>先存距离，然后暴力更新就完事了</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 2005</span></span><br><span class="line"><span class="type">int</span> d[maxn][maxn],ans[maxn],a[maxn][maxn];</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,x,y;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;x&gt;&gt;y;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;n ; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i+<span class="number">1</span>; j &lt;=n ; ++j) &#123;</span><br><span class="line">            d[j][i]=d[i][j]=j-i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt;=n ; ++k) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=n ; ++i) &#123;</span><br><span class="line">            d[k][i]=<span class="built_in">min</span>(d[k][x]+d[y][i]+<span class="number">1</span>,d[k][i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;n ; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i+<span class="number">1</span>; j &lt;=n ; ++j) &#123;</span><br><span class="line">            ans[d[i][j]]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> l = <span class="number">1</span>; l &lt;n ; ++l) &#123;</span><br><span class="line">        cout&lt;&lt;ans[l]&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="E-Red-and-Green-Apples"><a href="#E-Red-and-Green-Apples" class="headerlink" title="E Red and Green Apples"></a>E Red and Green Apples</h2><p>题意：有a个红苹果，b个绿苹果，c个无色苹果，每个无色苹果可以被涂成绿色或者红色，问在合理涂色的情况下取x个红苹果和y个绿苹果的最大权值。<br>先把三种苹果权值排个序，取红苹果权值前x个，绿苹果权值前y个，然后先取权值最大的无色苹果，整个双指针分别指向红苹果第x个，绿苹果第y个，如果当前无色苹果比指向的两个苹果中权值最小的一个要大，那就换成无色苹果，相应的移动有色苹果和无色苹果的指针即可。<br>（一开始没初始化极大值乱waQAQ</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 100005</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line">ll p[maxn],q[maxn],r[maxn];</span><br><span class="line"><span class="type">int</span> x,y,c,a,b;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> GCC optimize(2)</span></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios_base::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cin&gt;&gt;x&gt;&gt;y&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt;maxn ; ++k) &#123;</span><br><span class="line">        p[k]=q[k]=r[k]=<span class="number">20000000000</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=a ; ++i) &#123;</span><br><span class="line">        cin&gt;&gt;p[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=b ; ++i) &#123;</span><br><span class="line">        cin&gt;&gt;q[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=c ; ++i) &#123;</span><br><span class="line">        cin&gt;&gt;r[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(p+<span class="number">1</span>,p+<span class="number">1</span>+a);</span><br><span class="line">    <span class="built_in">sort</span>(q+<span class="number">1</span>,q+<span class="number">1</span>+b);</span><br><span class="line">    <span class="built_in">sort</span>(r+<span class="number">1</span>,r+<span class="number">1</span>+c);</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = a; j &gt;=<span class="number">1</span> ; --j) &#123;</span><br><span class="line">        ans+=p[j];</span><br><span class="line">        cnt++;</span><br><span class="line">        <span class="keyword">if</span>(cnt==x)<span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = b; j &gt;=<span class="number">1</span> ; --j) &#123;</span><br><span class="line">        ans+=q[j];</span><br><span class="line">        cnt++;</span><br><span class="line">        <span class="keyword">if</span>(cnt==y)<span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> l=a-x+<span class="number">1</span>,rs=b-y+<span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> pos=c;</span><br><span class="line">    <span class="keyword">while</span>(pos&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(l&gt;a&amp;&amp;rs&gt;b)<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span>(r[pos]&lt;=q[rs]&amp;&amp;r[pos]&lt;=p[l])<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span>(q[rs]&lt;=p[l]&amp;&amp;r[pos]&gt;q[rs])&#123;</span><br><span class="line">            ans-=q[rs];</span><br><span class="line">            rs++;</span><br><span class="line">            ans+=r[pos];</span><br><span class="line">            pos--;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(r[pos]&gt;p[l])&#123;</span><br><span class="line">                ans-=p[l];</span><br><span class="line">                l++;</span><br><span class="line">                ans+=r[pos];</span><br><span class="line">                pos--;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="F-Distributing-Integers"><a href="#F-Distributing-Integers" class="headerlink" title="F Distributing Integers"></a>F Distributing Integers</h2><p>换根dp，先溜先溜，数分写不完了QAQ</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Coffee"><span class="toc-number">1.</span> <span class="toc-text">A Coffee</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-Golden-Coins"><span class="toc-number">2.</span> <span class="toc-text">B Golden Coins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Traveling-Salesman-around-Lake"><span class="toc-number">3.</span> <span class="toc-text">C Traveling Salesman around Lake</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-Line"><span class="toc-number">4.</span> <span class="toc-text">D Line++</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-Red-and-Green-Apples"><span class="toc-number">5.</span> <span class="toc-text">E Red and Green Apples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F-Distributing-Integers"><span class="toc-number">6.</span> <span class="toc-text">F Distributing Integers</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&text=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&title=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&is_video=false&description=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AtCoder Beginner Contest 160 题解（F待填坑）&body=Check out this article: http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&title=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&title=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&title=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&title=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&name=AtCoder Beginner Contest 160 题解（F待填坑）&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/03/28/AtCoder-Beginner-Contest-160-%E9%A2%98%E8%A7%A3%EF%BC%88F%E5%BE%85%E5%A1%AB%E5%9D%91%EF%BC%89/&t=AtCoder Beginner Contest 160 题解（F待填坑）"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Bazoka13
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

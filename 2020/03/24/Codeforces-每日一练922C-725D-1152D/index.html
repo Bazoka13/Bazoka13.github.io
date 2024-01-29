@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="922C Cave Painting传送门镜像1600的数论水题题意：1~k中是否存在一对数i,j使得n mod i&#x3D;n mod j，如果有，输出“No”，否则输出“Yes”从1向后递推就可以很轻松地看出规律啦，显然n mod 1为0，那么n mod 2只能是1，否则会重复，同理 n mod 3&#x3D;2,n mod 4&#x3D;3，可以发现，只有当n mod i&#x3D;i-1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Codeforces 每日一练922C+725D+1152D">
+<meta property="og:url" content="http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/index.html">
+<meta property="og:site_name" content="Bazoka13&#39;s Blog">
+<meta property="og:description" content="922C Cave Painting传送门镜像1600的数论水题题意：1~k中是否存在一对数i,j使得n mod i&#x3D;n mod j，如果有，输出“No”，否则输出“Yes”从1向后递推就可以很轻松地看出规律啦，显然n mod 1为0，那么n mod 2只能是1，否则会重复，同理 n mod 3&#x3D;2,n mod 4&#x3D;3，可以发现，只有当n mod i&#x3D;i-1">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-03-24T15:52:46.000Z">
+<meta property="article:modified_time" content="2024-01-29T12:32:34.494Z">
+<meta property="article:author" content="Bazoka13">
+<meta property="article:tag" content="codeforces">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Codeforces 每日一练922C+725D+1152D</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J5RCECPMQ"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5J5RCECPMQ');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2020/03/25/Codeforcs-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-678C-527C-1012C/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2020/03/19/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-735D-573B-374C/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&text=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&title=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&is_video=false&description=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Codeforces 每日一练922C+725D+1152D&body=Check out this article: http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&title=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&title=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&title=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&title=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&name=Codeforces 每日一练922C+725D+1152D&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&t=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#922C-Cave-Painting"><span class="toc-number">1.</span> <span class="toc-text">922C Cave Painting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#725D-Contest-Balloons"><span class="toc-number">2.</span> <span class="toc-text">725D Contest Balloons</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1152D-Neko-and-Aki%E2%80%99s-Prank"><span class="toc-number">3.</span> <span class="toc-text">1152D Neko and Aki’s Prank</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Codeforces 每日一练922C+725D+1152D
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Bazoka13</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-03-24T15:52:46.000Z" class="dt-published" itemprop="datePublished">2020-03-24</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/codeforces/" rel="tag">codeforces</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="922C-Cave-Painting"><a href="#922C-Cave-Painting" class="headerlink" title="922C Cave Painting"></a>922C Cave Painting</h2><p><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/922/C">传送门</a><br><a target="_blank" rel="noopener" href="https://codeforces.ml/problemset/problem/922/C">镜像</a><br>1600的数论水题<br>题意：1~k中是否存在一对数i,j使得n mod i&#x3D;n mod j，如果有，输出“No”，否则输出“Yes”<br>从1向后递推就可以很轻松地看出规律啦，显然n mod 1为0，那么n mod 2只能是1，否则会重复，同理 n mod 3&#x3D;2,n mod 4&#x3D;3，可以发现，只有当n mod i&#x3D;i-1(1&lt;&#x3D;i&lt;&#x3D;k)的时候才满足输出“Yes”的条件，那么直接暴力跑就可以过了</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ios std::ios::sync_with_stdio(false)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line">ll n;</span><br><span class="line">ll k;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">check</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n!=<span class="number">1</span>&amp;&amp;n&lt;=k)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt;=k ; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span>(n%i!=(i<span class="number">-1</span>))<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios ; cin.<span class="built_in">tie</span>(<span class="number">0</span>) , cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">check</span>())cout&lt;&lt;<span class="string">&quot;Yes&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;No&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然而，这道题可以用随机数A掉（来自小姐姐的仙术）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line">map&lt;ll,<span class="type">int</span>&gt; mp1;</span><br><span class="line">map&lt;ll,<span class="type">int</span>&gt; mp2;</span><br><span class="line">ll n,k;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">	<span class="keyword">auto</span> seed=std::chrono::system_clock::<span class="built_in">now</span>().<span class="built_in">time_since_epoch</span>().<span class="built_in">count</span>();</span><br><span class="line">	<span class="function">std::mt19937 <span class="title">generator</span><span class="params">(seed)</span></span>;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">	<span class="keyword">if</span>(n&lt;=k&amp;&amp;n!=<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		cout&lt;&lt;<span class="string">&quot;No&quot;</span>&lt;&lt;endl;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">1000000</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		ll tmp=<span class="built_in">generator</span>()%k+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span>(mp1[tmp])</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		mp1[tmp]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span>(mp2[n%tmp])</span><br><span class="line">		&#123;</span><br><span class="line">			cout&lt;&lt;<span class="string">&quot;No&quot;</span>&lt;&lt;endl;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		mp2[n%tmp]=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;Yes&quot;</span>&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="725D-Contest-Balloons"><a href="#725D-Contest-Balloons" class="headerlink" title="725D Contest Balloons"></a>725D Contest Balloons</h2><p><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/725/D">传送门</a><br><a target="_blank" rel="noopener" href="https://codeforces.ml/problemset/problem/725/D">镜像</a><br>1800的优先队列<br>题意：你的队伍有t个气球，比赛结果按气球数排序，你可以把你的气球分给别的队伍来让他们的气球数大于重量，从而让他们起飞并被取消资格，问最优的名次是多少<br>先排个序，把比自己多的队伍的t-w+1存进优先队列里，每次取队首元素，然后分给他们气球让他们起飞，之后遍历排序时比自己小的，如果出现大于现在气球数的就按照相同处理入队，不断循环到队列为空或者自己的气球数小于队首元素即可，该过程维护排名的最小值即可<br>（代码看个意思就好，有点小乱</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line">ll n;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 300005</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">    ll t,w;</span><br><span class="line">&#125;a[maxn];</span><br><span class="line">priority_queue &lt;ll,vector&lt;ll&gt;,greater&lt;&gt; &gt; q;</span><br><span class="line"><span class="function">ll <span class="title">cmp</span><span class="params">(node c,node d)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> c.t&gt;d.t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;n);</span><br><span class="line">    ll tmp,ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt;n ; ++i) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld %lld&quot;</span>,&amp;a[i].t,&amp;a[i].w);</span><br><span class="line">    &#125;</span><br><span class="line">    tmp=a[<span class="number">0</span>].t;</span><br><span class="line">    <span class="built_in">sort</span>(a+<span class="number">1</span>,a+n,cmp);</span><br><span class="line">    <span class="keyword">for</span> (;ans&lt;n ; ++ans) &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[ans].t&lt;=tmp)<span class="keyword">break</span>;</span><br><span class="line">        q.<span class="built_in">push</span>(a[ans].w-a[ans].t+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    ll pos=ans;</span><br><span class="line">    ll pm=pos;</span><br><span class="line">    <span class="keyword">while</span>((!q.<span class="built_in">empty</span>()))&#123;</span><br><span class="line">        ll now=q.<span class="built_in">top</span>();</span><br><span class="line">        tmp-=now;</span><br><span class="line">        <span class="keyword">if</span>(tmp&lt;<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">        q.<span class="built_in">pop</span>();pm--;</span><br><span class="line">        <span class="keyword">for</span> (ll i = pos; i&lt;n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i].t&lt;=tmp)<span class="keyword">break</span>;</span><br><span class="line">            ll o=a[i].w-a[i].t+<span class="number">1</span>;</span><br><span class="line">            q.<span class="built_in">push</span>(o);</span><br><span class="line">            pos++;</span><br><span class="line">            pm++;</span><br><span class="line">        &#125;</span><br><span class="line">        ans=<span class="built_in">min</span>(ans,pm);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld&quot;</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>（刚开始cmp函数没返回ll，RE了半天~</p>
+<h2 id="1152D-Neko-and-Aki’s-Prank"><a href="#1152D-Neko-and-Aki’s-Prank" class="headerlink" title="1152D Neko and Aki’s Prank"></a>1152D Neko and Aki’s Prank</h2><p><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1152/D">传送门</a><br><a target="_blank" rel="noopener" href="https://codeforces.ml/problemset/problem/1152/D">镜像</a><br><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1152D">洛谷</a><br>2000的dp<br>题意：对于长度为2n的合法括号序列（做了那么多次了，合法就不多说了），将所有可能的情况建一个Trie树，取尽量多的边使得所取的边不相交。<br>受大佬的思想启发，对于两个长度一致的括号序列，如果其中左括号-右括号数量相等，那么他们的子树是等价的，这种情况就可以合并考虑，那么就可以开一个dp[2005][2005]的数组，dp[i][j]表示当前序列长度为i，左括号-右括号数目为j，同时另外开一个二维数组记录当前节点的儿子是否可以和当前节点连边，如果可以连边，那么计算儿子的时候就要加一，并把儿子的状态改为0，否则儿子的状态记为1。<br>有转移方程：<br><strong>dp[i][j]&#x3D;dp[i-1][j+1]+dp[i-1][j-1]</strong><br><strong>c[i][j]&#x3D;!(c[i-1][j-1]|c[i-1][j+1]）</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS  ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 2005</span></span><br><span class="line">ll dp[maxn][maxn];<span class="type">int</span> c[maxn][maxn];</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> mod 1000000007</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    IOS</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="built_in">memset</span>(dp,<span class="number">0</span>, <span class="built_in">sizeof</span>(dp));</span><br><span class="line">    c[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=<span class="number">2</span>*n ; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;=i ; ++j) &#123;</span><br><span class="line">            ll tmp=<span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> fl=<span class="number">0</span>;</span><br><span class="line">           <span class="keyword">if</span>(j&gt;=<span class="number">1</span>)&#123;tmp+=dp[i<span class="number">-1</span>][j<span class="number">-1</span>];fl|=c[i<span class="number">-1</span>][j<span class="number">-1</span>];&#125;</span><br><span class="line">           <span class="keyword">if</span>(j+<span class="number">1</span>&lt;=i<span class="number">-1</span>)&#123;tmp+=dp[i<span class="number">-1</span>][j+<span class="number">1</span>];fl|=c[i<span class="number">-1</span>][j+<span class="number">1</span>];&#125;</span><br><span class="line">           <span class="keyword">if</span>(fl)&#123;tmp+=<span class="number">1</span>;c[i][j]=<span class="number">0</span>;&#125;</span><br><span class="line">           <span class="keyword">else</span> c[i][j]=<span class="number">1</span>;</span><br><span class="line">           dp[i][j]=tmp%mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;dp[<span class="number">2</span>*n][<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#922C-Cave-Painting"><span class="toc-number">1.</span> <span class="toc-text">922C Cave Painting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#725D-Contest-Balloons"><span class="toc-number">2.</span> <span class="toc-text">725D Contest Balloons</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1152D-Neko-and-Aki%E2%80%99s-Prank"><span class="toc-number">3.</span> <span class="toc-text">1152D Neko and Aki’s Prank</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&text=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&title=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&is_video=false&description=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Codeforces 每日一练922C+725D+1152D&body=Check out this article: http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&title=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&title=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&title=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&title=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&name=Codeforces 每日一练922C+725D+1152D&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/03/24/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83922C-725D-1152D/&t=Codeforces 每日一练922C+725D+1152D"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Bazoka13
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
