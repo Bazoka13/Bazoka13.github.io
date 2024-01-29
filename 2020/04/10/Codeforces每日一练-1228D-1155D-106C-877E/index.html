@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="1228D Complete Tripartite传送门题意：给定一个图，询问是否可以把它划分成三分图，并且两个集合任意两个点之间都有连边，如果可行，输出染色方案，否则输出-1.一道水题啦，一个集合内的点肯定是不存在连边的，那我们只需要从1开始把每个点相连的边染成当前点颜色+1即可（利用颜色大小关系防止重复即可），但最后染成的颜色可能仅仅只满足三分图，并不能满足任意两点存在连边，染完色判个边数即可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Codeforces每日一练 1228D+1155D+106C+877E">
+<meta property="og:url" content="http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/index.html">
+<meta property="og:site_name" content="Bazoka13&#39;s Blog">
+<meta property="og:description" content="1228D Complete Tripartite传送门题意：给定一个图，询问是否可以把它划分成三分图，并且两个集合任意两个点之间都有连边，如果可行，输出染色方案，否则输出-1.一道水题啦，一个集合内的点肯定是不存在连边的，那我们只需要从1开始把每个点相连的边染成当前点颜色+1即可（利用颜色大小关系防止重复即可），但最后染成的颜色可能仅仅只满足三分图，并不能满足任意两点存在连边，染完色判个边数即可">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-04-10T10:37:09.000Z">
+<meta property="article:modified_time" content="2024-01-29T12:25:09.895Z">
+<meta property="article:author" content="Bazoka13">
+<meta property="article:tag" content="codeforces">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Codeforces每日一练 1228D+1155D+106C+877E</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J5RCECPMQ"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5J5RCECPMQ');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2020/04/13/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-268C-1132F-1251D/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2020/04/09/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1223D-1277D-1133F1/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&text=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&title=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&is_video=false&description=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Codeforces每日一练 1228D+1155D+106C+877E&body=Check out this article: http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&title=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&title=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&title=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&title=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&name=Codeforces每日一练 1228D+1155D+106C+877E&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&t=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1228D-Complete-Tripartite"><span class="toc-number">1.</span> <span class="toc-text">1228D Complete Tripartite</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1155D-Beautiful-Array"><span class="toc-number">2.</span> <span class="toc-text">1155D Beautiful Array</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#106C-Buns"><span class="toc-number">3.</span> <span class="toc-text">106C Buns</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#877E-Danil-and-a-Part-time-Job"><span class="toc-number">4.</span> <span class="toc-text">877E Danil and a Part-time Job</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Codeforces每日一练 1228D+1155D+106C+877E
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Bazoka13</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-04-10T10:37:09.000Z" class="dt-published" itemprop="datePublished">2020-04-10</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/codeforces/" rel="tag">codeforces</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="1228D-Complete-Tripartite"><a href="#1228D-Complete-Tripartite" class="headerlink" title="1228D Complete Tripartite"></a>1228D Complete Tripartite</h1><p><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1228/D">传送门</a><br>题意：给定一个图，询问是否可以把它划分成三分图，并且两个集合任意两个点之间都有连边，如果可行，输出染色方案，否则输出-1.<br>一道水题啦，一个集合内的点肯定是不存在连边的，那我们只需要从1开始把每个点相连的边染成当前点颜色+1即可（利用颜色大小关系防止重复即可），但最后染成的颜色可能仅仅只满足三分图，并不能满足任意两点存在连边，染完色判个边数即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 300005</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS  ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; g[maxn];</span><br><span class="line"><span class="type">int</span> vis[maxn],tmp[maxn];</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS</span><br><span class="line">    <span class="type">int</span> n,m;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="type">int</span> t=m;</span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        <span class="type">int</span> u,v;</span><br><span class="line">        cin&gt;&gt;u&gt;&gt;v;</span><br><span class="line">        g[u].<span class="built_in">push_back</span>(v);</span><br><span class="line">        g[v].<span class="built_in">push_back</span>(u);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> cnt=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=n ; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> j:g[i])&#123;</span><br><span class="line">            <span class="keyword">if</span>(j&gt;i&amp;&amp;tmp[j]==tmp[i])&#123;tmp[j]=tmp[i]+<span class="number">1</span>;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        cnt=<span class="built_in">max</span>(cnt,tmp[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(cnt!=<span class="number">2</span>)cout&lt;&lt;<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="type">int</span> a=<span class="number">0</span>,b=<span class="number">0</span>,c=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=n ; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(tmp[i]==<span class="number">0</span>)a++;</span><br><span class="line">            <span class="keyword">if</span>(tmp[i]==<span class="number">1</span>)b++;</span><br><span class="line">            <span class="keyword">if</span>(tmp[i]==<span class="number">2</span>)c++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a*b+b*c+c*a!=m)cout&lt;&lt;<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=n ; ++i) &#123;</span><br><span class="line">                cout&lt;&lt;tmp[i]+<span class="number">1</span>&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="1155D-Beautiful-Array"><a href="#1155D-Beautiful-Array" class="headerlink" title="1155D Beautiful Array"></a>1155D Beautiful Array</h1><p><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1155/D">传送门</a><br>题意：一个数列，可以将某段连续子序列同时乘上x，也可以不进行操作，询问最大子段和。<br>看看范围是3e5，应该是线性或者加个状态，考虑到每个结点有染色或者不染色的可能，那就是一维带个状态的写法。<br>如果只开两种状态，会出现多段染色的情况，所以我们开三种状态，记录没染，正在染，已经染过，转移过程记录最大值即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 300005</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS  ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line">ll dp[maxn][<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS</span><br><span class="line">    ll n,x;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;x;</span><br><span class="line">    ll ans=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=n ; ++i) &#123;</span><br><span class="line">        ll tmp;</span><br><span class="line">        cin&gt;&gt;tmp;</span><br><span class="line">        dp[i][<span class="number">1</span>]=<span class="built_in">max</span>(dp[i<span class="number">-1</span>][<span class="number">1</span>]+tmp,<span class="number">0ll</span>);</span><br><span class="line">        ans=<span class="built_in">max</span>(ans,dp[i][<span class="number">1</span>]);</span><br><span class="line">        dp[i][<span class="number">2</span>]=<span class="built_in">max</span>(<span class="built_in">max</span>(dp[i<span class="number">-1</span>][<span class="number">1</span>]+tmp*x,dp[i<span class="number">-1</span>][<span class="number">2</span>]+tmp*x),<span class="number">0ll</span>);</span><br><span class="line">        ans=<span class="built_in">max</span>(ans,dp[i][<span class="number">2</span>]);</span><br><span class="line">        dp[i][<span class="number">3</span>]=<span class="built_in">max</span>(<span class="built_in">max</span>(dp[i<span class="number">-1</span>][<span class="number">2</span>]+tmp,dp[i<span class="number">-1</span>][<span class="number">3</span>]+tmp),<span class="number">0ll</span>);</span><br><span class="line">        ans=<span class="built_in">max</span>(ans,dp[i][<span class="number">3</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="106C-Buns"><a href="#106C-Buns" class="headerlink" title="106C Buns"></a>106C Buns</h1><p><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/106/C">传送门</a><br>题意：有n克面团和m种馅料，可以做带馅儿的也可以做不带馅儿的，每种价格不一，询问最大收益是多少。<br>多重背包裸题，对每种面包，根据所剩馅料的质量、面团质量以及需要材料的质量可以确定最大数量，这就转化成了多重背包问题，正好数据范围较小，甚至不需要优化。<br>（v、w写反了，见谅qwq）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 20</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS  ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">bread</span>&#123;</span><br><span class="line">    ll a,b,c,w,num;</span><br><span class="line">&#125;b[maxn];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">bag</span>&#123;</span><br><span class="line">    ll v,w;</span><br><span class="line">&#125;;</span><br><span class="line">ll dp[<span class="number">2000</span>];</span><br><span class="line">vector&lt;bag&gt; ba;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS</span><br><span class="line">    ll n,m,c0,d0;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;c0&gt;&gt;d0;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=m ; ++i) &#123;</span><br><span class="line">        cin&gt;&gt;b[i].a&gt;&gt;b[i].b&gt;&gt;b[i].c&gt;&gt;b[i].w;</span><br><span class="line">        b[i].num=<span class="built_in">min</span>(n/b[i].c,b[i].a/b[i].b);</span><br><span class="line">    &#125;</span><br><span class="line">    b[m+<span class="number">1</span>]=&#123;n,n,c0,d0,n/c0&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=m+<span class="number">1</span> ; ++i) &#123;</span><br><span class="line">        ll tmp=b[i].num,cnt=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(tmp&gt;=cnt)&#123;</span><br><span class="line">            ba.<span class="built_in">push_back</span>(&#123;cnt*b[i].c,cnt*b[i].w&#125;);</span><br><span class="line">            tmp-=cnt;</span><br><span class="line">            cnt*=<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(tmp&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            ba.<span class="built_in">push_back</span>(&#123;tmp*b[i].c,tmp*b[i].w&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;ba.<span class="built_in">size</span>() ; ++i) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (ll j = n; j &gt;=ba[i].v ; j--) &#123;</span><br><span class="line">            dp[j]=<span class="built_in">max</span>(dp[j],dp[j-ba[i].v]+ba[i].w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;dp[n];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="877E-Danil-and-a-Part-time-Job"><a href="#877E-Danil-and-a-Part-time-Job" class="headerlink" title="877E Danil and a Part-time Job"></a>877E Danil and a Part-time Job</h1><p><a target="_blank" rel="noopener" href="http://codeforces.com/problemset/problem/877/E">传送门</a><br>题意：给定一棵树，每个结点都有初始权值（0&#x2F;1），有两种操作：</p>
+<ul>
+<li>对某棵子树的权值全部取反</li>
+<li>询问某棵子树中1的个数（求和）</li>
+</ul>
+<p> 输出每次询问的答案。<br> 看题意，和区间操作很像，那么如果能转化成线形结构，直接线段树就可以解了。而树形转换成线形，我们就可以用dfs序去搞一搞（如果你还不知道dfs序，可以看看这篇博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36368339/article/details/79236467">传送门</a>），转换成线形结构之后就成了线段树板子题了。<br> （板子是白嫖的，如果你还不会线段树区间取反，可以看看这道题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2574">洛谷 P2574 XOR的艺术</a>）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> il inline</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ls(x) (x&lt;&lt;1)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rs(x) (ls(x)|1)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 200005</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS  ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="type">int</span> in[maxn],out[maxn],cnt=<span class="number">0</span>,a[maxn];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; g[maxn];</span><br><span class="line"><span class="function">il <span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> fa)</span></span>&#123;</span><br><span class="line">    in[x]=++cnt;</span><br><span class="line">    a[cnt]=x;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i:g[x])&#123;</span><br><span class="line">        <span class="keyword">if</span>(i==fa)<span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">dfs</span>(i,x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    out[x]=cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> w[maxn];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">FFF</span>&#123;</span><br><span class="line">    <span class="type">int</span> l,r;</span><br><span class="line">    <span class="type">int</span> op;</span><br><span class="line">    <span class="type">int</span> cl;</span><br><span class="line">    <span class="type">bool</span> rev;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mid</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> l+r&gt;&gt;<span class="number">1</span>;&#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">len</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> r-l+<span class="number">1</span>;&#125;</span><br><span class="line">&#125;t[maxn*<span class="number">4</span>];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">up</span><span class="params">(<span class="type">int</span> o)</span></span>&#123;</span><br><span class="line">    t[o].op=t[<span class="built_in">ls</span>(o)].op+t[<span class="built_in">rs</span>(o)].op;</span><br><span class="line">    t[o].cl=t[<span class="built_in">ls</span>(o)].cl+t[<span class="built_in">rs</span>(o)].cl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">build</span><span class="params">(<span class="type">int</span> l=<span class="number">1</span>,<span class="type">int</span> r=n,<span class="type">int</span> o=<span class="number">1</span>)</span></span>&#123;</span><br><span class="line">    t[o].l=l;t[o].r=r;</span><br><span class="line">    t[o].op=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(l==r)&#123;</span><br><span class="line">        t[o].cl=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(w[l]==<span class="number">1</span>)<span class="built_in">swap</span>(t[o].op,t[o].cl);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mid=l+r&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="built_in">build</span>(l,mid,<span class="built_in">ls</span>(o));</span><br><span class="line">    <span class="built_in">build</span>(mid+<span class="number">1</span>,r,<span class="built_in">rs</span>(o));</span><br><span class="line">    <span class="built_in">up</span>(o);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">down</span><span class="params">(<span class="type">int</span> o)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(t[o].rev)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=<span class="number">1</span>;++i)&#123;</span><br><span class="line">            t[<span class="built_in">ls</span>(o)|i].rev^=<span class="number">1</span>;</span><br><span class="line">            <span class="built_in">swap</span>(t[<span class="built_in">ls</span>(o)|i].op,t[<span class="built_in">ls</span>(o)|i].cl);</span><br><span class="line">        &#125;</span><br><span class="line">        t[o].rev=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> o=<span class="number">1</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l&lt;=t[o].l&amp;&amp;t[o].r&lt;=r)&#123;</span><br><span class="line">        t[o].rev^=<span class="number">1</span>;</span><br><span class="line">        <span class="built_in">swap</span>(t[o].op,t[o].cl);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mid=t[o].<span class="built_in">mid</span>();</span><br><span class="line">    <span class="built_in">down</span>(o);</span><br><span class="line">    <span class="keyword">if</span>(l&lt;=mid)<span class="built_in">add</span>(l,r,<span class="built_in">ls</span>(o));</span><br><span class="line">    <span class="keyword">if</span>(r&gt;mid)<span class="built_in">add</span>(l,r,<span class="built_in">rs</span>(o));</span><br><span class="line">    <span class="built_in">up</span>(o);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getsum</span><span class="params">(<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> o=<span class="number">1</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l&lt;=t[o].l&amp;&amp;t[o].r&lt;=r)&#123;</span><br><span class="line">        <span class="keyword">return</span> t[o].op;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> mid=t[o].<span class="built_in">mid</span>();</span><br><span class="line">    <span class="built_in">down</span>(o);</span><br><span class="line">    <span class="keyword">if</span>(l&lt;=mid)ans+=<span class="built_in">getsum</span>(l,r,<span class="built_in">ls</span>(o));</span><br><span class="line">    <span class="keyword">if</span>(r&gt;mid)ans+=<span class="built_in">getsum</span>(l,r,<span class="built_in">rs</span>(o));</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    IOS</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=n<span class="number">-1</span>; ++i) &#123;</span><br><span class="line">        <span class="type">int</span> x;</span><br><span class="line">        cin&gt;&gt;x;</span><br><span class="line">        g[x].<span class="built_in">push_back</span>(i+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=n ; ++i) &#123;</span><br><span class="line">        <span class="type">int</span> tmp;</span><br><span class="line">        cin&gt;&gt;tmp;</span><br><span class="line">        w[in[i]]=tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> m;</span><br><span class="line">    cin&gt;&gt;m;</span><br><span class="line">    <span class="built_in">build</span>(<span class="number">1</span>,n,<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        string s;</span><br><span class="line">        <span class="type">int</span> op;</span><br><span class="line">        cin&gt;&gt;s&gt;&gt;op; <span class="type">int</span> l=in[op],r=out[op];</span><br><span class="line">        <span class="comment">//cout&lt;&lt;s&lt;&lt;endl;</span></span><br><span class="line">        <span class="keyword">if</span>(s==<span class="string">&quot;get&quot;</span>)&#123;</span><br><span class="line">            cout&lt;&lt;<span class="built_in">getsum</span>(l,r,<span class="number">1</span>)&lt;&lt;endl;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">add</span>(l,r,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1228D-Complete-Tripartite"><span class="toc-number">1.</span> <span class="toc-text">1228D Complete Tripartite</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1155D-Beautiful-Array"><span class="toc-number">2.</span> <span class="toc-text">1155D Beautiful Array</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#106C-Buns"><span class="toc-number">3.</span> <span class="toc-text">106C Buns</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#877E-Danil-and-a-Part-time-Job"><span class="toc-number">4.</span> <span class="toc-text">877E Danil and a Part-time Job</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&text=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&title=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&is_video=false&description=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Codeforces每日一练 1228D+1155D+106C+877E&body=Check out this article: http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&title=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&title=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&title=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&title=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&name=Codeforces每日一练 1228D+1155D+106C+877E&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/04/10/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1228D-1155D-106C-877E/&t=Codeforces每日一练 1228D+1155D+106C+877E"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Bazoka13
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>

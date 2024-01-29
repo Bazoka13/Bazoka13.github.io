@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="A ABC Swap题意：依次交换AB,AC中的元素，输出最后结果如果实在懒得想就像我一样看着题写两个swap 1234567891011121314151617181920#include&lt;bits&#x2F;stdc++.h&gt;using namespace std ;#define ll long long#define db double#define ld long double#def">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AtCoder Beginner Contest 161题解">
+<meta property="og:url" content="http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Bazoka13&#39;s Blog">
+<meta property="og:description" content="A ABC Swap题意：依次交换AB,AC中的元素，输出最后结果如果实在懒得想就像我一样看着题写两个swap 1234567891011121314151617181920#include&lt;bits&#x2F;stdc++.h&gt;using namespace std ;#define ll long long#define db double#define ld long double#def">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-04-04T16:21:05.000Z">
+<meta property="article:modified_time" content="2024-01-29T12:26:04.370Z">
+<meta property="article:author" content="Bazoka13">
+<meta property="article:tag" content="atcoder">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>AtCoder Beginner Contest 161题解</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5J5RCECPMQ"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5J5RCECPMQ');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="Previous post" href="/2020/04/07/Codeforces-%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-1213G-961E-1282B2/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2020/04/03/Codeforces%E6%AF%8F%E6%97%A5%E4%B8%80%E7%BB%83-495B-55C-1280C/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&text=AtCoder Beginner Contest 161题解"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&title=AtCoder Beginner Contest 161题解"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&is_video=false&description=AtCoder Beginner Contest 161题解"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AtCoder Beginner Contest 161题解&body=Check out this article: http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&title=AtCoder Beginner Contest 161题解"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&title=AtCoder Beginner Contest 161题解"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&title=AtCoder Beginner Contest 161题解"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&title=AtCoder Beginner Contest 161题解"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&name=AtCoder Beginner Contest 161题解&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&t=AtCoder Beginner Contest 161题解"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#A-ABC-Swap"><span class="toc-number">1.</span> <span class="toc-text">A ABC Swap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#B-Popular-Vote"><span class="toc-number">2.</span> <span class="toc-text">B Popular Vote</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-Replacing-Integer"><span class="toc-number">3.</span> <span class="toc-text">C Replacing Integer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#D-Lunlun-Number"><span class="toc-number">4.</span> <span class="toc-text">D Lunlun Number</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#E-Yutori"><span class="toc-number">5.</span> <span class="toc-text">E Yutori</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#F-Division-or-Substraction"><span class="toc-number">6.</span> <span class="toc-text">F Division or Substraction</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        AtCoder Beginner Contest 161题解
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Bazoka13</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-04-04T16:21:05.000Z" class="dt-published" itemprop="datePublished">2020-04-05</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/atcoder/" rel="tag">atcoder</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="A-ABC-Swap"><a href="#A-ABC-Swap" class="headerlink" title="A ABC Swap"></a>A ABC Swap</h1><p>题意：依次交换AB,AC中的元素，输出最后结果<br>如果实在懒得想就像我一样看着题写两个swap</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std ;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> db double</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ld long double</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS  ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> GCC optimize(2)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 1020</span></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    IOS</span><br><span class="line">    <span class="type">int</span> x,y,z;</span><br><span class="line">    cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;</span><br><span class="line">    <span class="built_in">swap</span>(x,y);</span><br><span class="line">    <span class="built_in">swap</span>(x,z);</span><br><span class="line">    cout&lt;&lt;x&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;y&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;z;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="B-Popular-Vote"><a href="#B-Popular-Vote" class="headerlink" title="B Popular Vote"></a>B Popular Vote</h1><p>题意：N个物品，每个都有一个权值，询问是否存在M个物品，其中每个物品的权值不小于权值和的$\frac{1}{4M}$<br>先算出总和，然后O(N)遍历，一个简单的移项可以帮助你避免浮点数的使用</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std ;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> db double</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ld long double</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS  ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> GCC optimize(2)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 110</span></span><br><span class="line"><span class="function">ll <span class="title">lcm</span><span class="params">(ll a,ll b)</span></span>&#123;<span class="keyword">return</span> a*b/__gcd(a,b);&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"><span class="type">int</span> a[maxn];</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    IOS</span><br><span class="line">    <span class="type">int</span> n,m;</span><br><span class="line">    ll sum=<span class="number">0</span>;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;n ; ++i) &#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        sum+=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;n ; ++j) &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[j]*<span class="number">4</span>*m&gt;=sum)cnt++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(cnt&gt;=m)cout&lt;&lt;<span class="string">&quot;Yes&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;No&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="C-Replacing-Integer"><a href="#C-Replacing-Integer" class="headerlink" title="C Replacing Integer"></a>C Replacing Integer</h1><p>题意：给你N和K，每次可以把N替换为N和K差的绝对值，询问所有替换中N的最小值<br>很简单的一道思维题，如果N大于K，那么N就可以写成M*K+b的形式，而如果N小于等于K,N会在N和K-N之间反复横跳，那么我们只需要去找N%K和K-N%K之中的最小值即可</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std ;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> db double</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ld long double</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS  ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> GCC optimize(2)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 110</span></span><br><span class="line"><span class="type">int</span> a[maxn];</span><br><span class="line">ll n,k;</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    IOS</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">    <span class="keyword">if</span>(n%k==<span class="number">0</span>)cout&lt;&lt;<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        n%=k;</span><br><span class="line">        cout&lt;&lt;<span class="built_in">min</span>(n,k-n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="D-Lunlun-Number"><a href="#D-Lunlun-Number" class="headerlink" title="D Lunlun Number"></a>D Lunlun Number</h1><p>题意：lunlun数的定义是该数字每一位与相邻位差的绝对值小于等于1，求第k小的lunlun数<br>二维dp，一开始想的打表，但实在太懒，就去搞dp了，而范围也不用太大，差不多10*10的二维数组，dp[i][j]表示当前数字有i位，然后首位数字为j的方案数，然后转移的时候就很好转移了，只需要在dp[i-1][j-1],dp[i-1][j],dp[i-1][j+1]三者里找到合法的项加上即可。求出来之后怎么办呢，依次遍历每一项，如果K小于等于当前的dp值，那么要找的数一定在这个状态里，否则K-当前的dp值，继续遍历。<br>当我们找到dp[i][j]&gt;&#x3D;K的情况时，只需要在i-1的情况里继续找即可，只不过每次第二维被限制在j-1,j,j+1，当第一维为0时输出即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std ;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> db double</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ld long double</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS  ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> GCC optimize(2)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 110</span></span><br><span class="line"><span class="type">int</span> dp[maxn][maxn];</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    IOS</span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    cin&gt;&gt;num;</span><br><span class="line">    <span class="built_in">memset</span>(dp,<span class="number">0</span>, <span class="built_in">sizeof</span>(dp));</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt;=<span class="number">9</span> ; ++k) &#123;</span><br><span class="line">        dp[<span class="number">1</span>][k]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;=<span class="number">10</span> ; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;=<span class="number">9</span> ; ++j) &#123;</span><br><span class="line">            dp[i][j]=dp[i<span class="number">-1</span>][j]+dp[i<span class="number">-1</span>][j<span class="number">-1</span>]+dp[i<span class="number">-1</span>][j+<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">    <span class="type">int</span> l=<span class="number">0</span>, r = <span class="number">0</span>,fl=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;=<span class="number">10</span> ; ++j) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;=<span class="number">9</span> ; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span>(num&lt;=dp[j][i])&#123;</span><br><span class="line">                l=j;</span><br><span class="line">                r=i;</span><br><span class="line">                fl=<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            num-=dp[j][i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(fl==<span class="number">1</span>)<span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    l--;</span><br><span class="line">    ans.<span class="built_in">push</span>(r);</span><br><span class="line">    <span class="keyword">while</span>(l!=<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(num&lt;=dp[l][r<span class="number">-1</span>])&#123;</span><br><span class="line">            r--;</span><br><span class="line">            ans.<span class="built_in">push</span>(r);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            num-=dp[l][r<span class="number">-1</span>];</span><br><span class="line">            <span class="keyword">if</span>(num&lt;=dp[l][r])&#123;</span><br><span class="line">                ans.<span class="built_in">push</span>(r);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                num-=dp[l][r];</span><br><span class="line">                r++;</span><br><span class="line">                ans.<span class="built_in">push</span>(r);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        l--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!ans.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        <span class="type">int</span> now=ans.<span class="built_in">front</span>();</span><br><span class="line">        cout&lt;&lt;now;</span><br><span class="line">        ans.<span class="built_in">pop</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="E-Yutori"><a href="#E-Yutori" class="headerlink" title="E Yutori"></a>E Yutori</h1><p>题意：Takahashi需要选择K天工作，如果某一天他工作了，那么之后C天都不用工作，同时存在一些日子，这些日子里他不用工作，询问在所有的挑选方案里，哪一天必须工作？<br>这道题比赛没切出来（<del>我是屑</del> )，看完大佬代码之后，发现是一道贪心水题，我们先记录Takahashi最勤快的情况（尽量早地完成工作）是哪几天，最懒惰的情况（与前者相反）是哪几天，然后去找交集，如果某个元素在二者中都出现且位次一致，那么这天就是必须工作的。<br>为什么贪心是对的呢？<br>这里说一说本蒟蒻的思路：<br>首先如果某一天必须工作，那么它一定出现在最勤快和最懒惰的情况，那么交集是肯定正确的。那么位次不同为什么就不合法呢？我们假设最勤快的情况是1、3、5，最懒惰的情况是3、5、7，交集是3、5，但是我们可以取1、5、7（不取3），也可以取1、3、7（不取5），显然只有交集中位次相同的才是对的。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std ;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> db double</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ld long double</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS  ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> GCC optimize(2)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 200005</span></span><br><span class="line"><span class="type">int</span> l[maxn],r[maxn];</span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    IOS</span><br><span class="line">    <span class="type">int</span> n,k,c;</span><br><span class="line">    string s;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;k&gt;&gt;c;</span><br><span class="line">    cin&gt;&gt;s;</span><br><span class="line">    <span class="type">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(l,<span class="number">-1</span>, <span class="built_in">sizeof</span>(l));</span><br><span class="line">    <span class="built_in">memset</span>(r,<span class="number">-1</span>, <span class="built_in">sizeof</span>(r));</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;n&amp;&amp;cnt&lt;k ; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==<span class="string">&#x27;x&#x27;</span>)<span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            l[cnt++]=i;</span><br><span class="line">            i+=c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cnt=k<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = n<span class="number">-1</span>; j &gt;=<span class="number">0</span>&amp;&amp;cnt&gt;=<span class="number">0</span> ; --j) &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[j]==<span class="string">&#x27;x&#x27;</span>)<span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            r[cnt--]=j;</span><br><span class="line">            j-=c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> m = <span class="number">0</span>; m &lt;k ; ++m) &#123;</span><br><span class="line">        <span class="keyword">if</span>(l[m]==r[m]&amp;&amp;l[m]!=<span class="number">-1</span>)cout&lt;&lt;l[m]+<span class="number">1</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="F-Division-or-Substraction"><a href="#F-Division-or-Substraction" class="headerlink" title="F Division or Substraction"></a>F Division or Substraction</h1><p>题意：在2~N之间选一个数，然后进行下列操作：</p>
+<ul>
+<li>如果N模K等于0，将N替换为N&#x2F;K</li>
+<li>如果N模K不为0，将N替换为N-K</li>
+</ul>
+<p> 求可以使N变成1的K的取值方案数</p>
+<p>数论水题啦，一开始的思路分的情况有点多，听了学长的思路发现部分方案可以合并，如下：<br>很容易可以想到一种合法的情况是一直除到1，还有一种情况是先除再减，即对每一个合法的k，我么都可以把n写成下面的形式$${k^p}<em>{(a</em>k+1)}$$其中p&gt;&#x3D;0,a&gt;&#x3D;0并且二者不同时为0（1不合法），那么只需要分别讨论p为0和不为0的情况就好，为0几乎就是求n-1的因子数了，$\sqrt{N}$的时间可以解出来，另一种情况其实也可以在相同的时间复杂度内解出来，因为p不为0时，只有a&#x3D;0时，式子中才不会出现${k^2}$，容易解出大于$\sqrt{N}$的范围内只有N时满足题意的，只需要枚举2~$\sqrt{N}$即可。<br>（合并方案后用时竟然从四位数快到了两位数）</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std ;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> db double</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ld long double</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> IOS  ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> GCC optimize(2)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxn 110</span></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    IOS</span><br><span class="line">    ll n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">2</span>; i &lt;=(ll)<span class="built_in">sqrt</span>(n) ; ++i) &#123;</span><br><span class="line">        ll now=n;</span><br><span class="line">        <span class="keyword">while</span>(now%i==<span class="number">0</span>)&#123;</span><br><span class="line">            now/=i;</span><br><span class="line">            <span class="keyword">if</span>((now<span class="number">-1</span>)%i==<span class="number">0</span>)&#123;</span><br><span class="line">                ans++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    n--;</span><br><span class="line">    <span class="keyword">for</span> (ll l = <span class="number">1</span>; l &lt;=(ll)<span class="built_in">sqrt</span>(n) ; ++l) &#123;</span><br><span class="line">        <span class="keyword">if</span>(n%l==<span class="number">0</span>)&#123;</span><br><span class="line">            ans+=<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(l==<span class="number">1</span>)ans--;</span><br><span class="line">            <span class="keyword">if</span>(l*l==n)ans--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#A-ABC-Swap"><span class="toc-number">1.</span> <span class="toc-text">A ABC Swap</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#B-Popular-Vote"><span class="toc-number">2.</span> <span class="toc-text">B Popular Vote</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-Replacing-Integer"><span class="toc-number">3.</span> <span class="toc-text">C Replacing Integer</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#D-Lunlun-Number"><span class="toc-number">4.</span> <span class="toc-text">D Lunlun Number</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#E-Yutori"><span class="toc-number">5.</span> <span class="toc-text">E Yutori</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#F-Division-or-Substraction"><span class="toc-number">6.</span> <span class="toc-text">F Division or Substraction</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&text=AtCoder Beginner Contest 161题解"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&title=AtCoder Beginner Contest 161题解"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&is_video=false&description=AtCoder Beginner Contest 161题解"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AtCoder Beginner Contest 161题解&body=Check out this article: http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&title=AtCoder Beginner Contest 161题解"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&title=AtCoder Beginner Contest 161题解"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&title=AtCoder Beginner Contest 161题解"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&title=AtCoder Beginner Contest 161题解"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&name=AtCoder Beginner Contest 161题解&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://bazoka13.github.io/2020/04/05/AtCoder-Beginner-Contest-161%E9%A2%98%E8%A7%A3/&t=AtCoder Beginner Contest 161题解"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2024
+    Bazoka13
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Bazoka13">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
