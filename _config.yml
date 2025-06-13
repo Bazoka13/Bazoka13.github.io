@@ -29,7 +29,7 @@ repository: brennanbrown/purelog
 twitter: brennankbrown
 github: brennanbrown
 
-header_image: assets/profile.png
+header_image: https://i.postimg.cc/rpDmcLHG/51647313.jpg
 
 google_analytics:
 comments: true
@@ -67,7 +67,7 @@ defaults:
     values:
       layout: "post"
       author: Brennan K. Brown
-      avatar: assets/profile-sm.png
+      avatar: https://i.postimg.cc/rpDmcLHG/51647313.jpg
   - scope:
       path: ""
       type: notes
