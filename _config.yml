@@ -18,16 +18,16 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: "Purelog: for Writers"
-email: mail@brennanbrown.ca
+title: "Bazoka13's Blog"
+email: cuisk@buaa.edu.cn
 description: >- # this means to ignore newlines until "baseurl:"
   A responsive sidebar Jekyll theme using the Pure.css framework, 
   designed for writers and bloggers of all kinds.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://Bazoka13.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-repository: brennanbrown/purelog
-twitter: brennankbrown
-github: brennanbrown
+repository: Bazoka13/Bazoka13.github.io
+twitter: Bazoka13
+github: Bazoka13
 
 header_image: assets/profile.jpeg
 
@@ -62,7 +62,7 @@ defaults:
       type: "posts" # previously `post` in Jekyll 2.2.
     values:
       layout: "post"
-      author: Brennan K. Brown
+      author: Bazoka13
       avatar: assets/profile.jpeg
   - scope:
       path: ""
