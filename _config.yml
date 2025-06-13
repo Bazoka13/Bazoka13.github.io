@@ -24,7 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   A responsive sidebar Jekyll theme using the Pure.css framework, 
   designed for writers and bloggers of all kinds.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://purelog.netlify.app" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://Bazoka13.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 repository: brennanbrown/purelog
 twitter: brennankbrown
 github: brennanbrown
