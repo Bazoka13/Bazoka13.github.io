@@ -3,7 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
-PhD stundent in BUAA.
+Ph.D. Student at BUAA.
 
 - Constraints Solving
 
