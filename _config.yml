@@ -21,12 +21,11 @@
 title: "Bazoka13's Blog"
 email: cuisk@buaa.edu.cn
 description: >- # this means to ignore newlines until "baseurl:"
-  A responsive sidebar Jekyll theme using the Pure.css framework, 
-  designed for writers and bloggers of all kinds.
+  I'm Bazoka13, a student at Beihang University, majoring in Constraints Solving.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://Bazoka13.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 repository: Bazoka13/Bazoka13.github.io
-twitter: Bazoka13
+twitter: bazoka_13
 github: Bazoka13
 
 header_image: assets/profile.jpeg
@@ -37,7 +36,7 @@ disqus: purelog-jekyll
 
 author: Bazoka13
 author_bio: >-
-  Nothing here.
+  I'm Bazoka13, a student at Beihang University, majoring in Constraints Solving.
 author_pic: https://i.postimg.cc/rpDmcLHG/51647313.jpg
 paginate: 4
 paginate_path: "/:num/"
